@@ -1,0 +1,992 @@
+"use strict";
+exports.id = 525;
+exports.ids = [525];
+exports.modules = {
+
+/***/ 1525:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "s": () => (/* binding */ single_news_data)
+/* harmony export */ });
+const single_news_data = [
+    {
+        id: "term_1",
+        text: "Means unspent transaction output. Every address on Cardano is filled with UTxO (unless the address has 0 funds)...",
+        title: "UTXO",
+        description: "Means unspent transaction output. Every address on Cardano is filled with UTxO (unless the address has 0 funds). These UTxOs are products of transactions that deposited money into the address. They are then used to spend money from the address, which consumes the UTxO and delivers funds to another address (and a new UTxO for any remaining balance from current UTxO). An address can be full of many UTxOs. An individual address will not have one UTxO for all possessed funds. This is contrary to Ethereum, which uses an account-based model, like bank accounts. In an account-based model, an address simply has funds, and some is subtracted when money is spent. This is not how Bitcoin or Cardano works because they use the UTxO model. For more information:  https://www.youtube.com/watch?v=bfofA4MM0QE",
+        descriptionAda: "Ethereum does not use UTXOs. Rather it is an account based model, similar to how one would think about their bank account balance",
+        image: "/images/blog/term_1.jpg",
+        date: "5 Feb",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        id: "term_2",
+        text: "On Ethereum, smart contracts life on the blockchain as code that performs specific action...",
+        title: "Smart Contract / Policy Script",
+        description: "On Ethereum, smart contracts life on the blockchain as code that performs specific action. This is not how Cardano smart contracts work. It is helpful to think of smart contracts on Cardano as validator scripts. When a smart contract is written, it is turned into a policy script file, containing a hash that represents the code. The contact was full of parameters that legitimize a transaction. So, when a policy script is attached to a transaction on Cardano, it will only go through if all the conditions of the transaction meet the criteria of the smart contract. Therefore, more complicated functions can be performed on Cardano, because there are policy scripts that are regulating the legitimacy of these transactions.",
+        descriptionAda: "A smart contract is code that lives on the the blockchain and can perform complicated actions. Ethereum was the first blockchain to introduce more complicated smart contracts.",
+        image: "/images/blog/term_2.jpg",
+        date: "5 Feb",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        id: "term_3",
+        text: "The invention of bitcoin brought forth the greatest use case of proof of work. A system that required hardware to use electricity to solve...",
+        title: "Consensus Type",
+        description: "The invention of bitcoin brought forth the greatest use case of proof of work. A system that required hardware to use electricity to solve cryptography in order to validate a block on the blockchain. In concern for the environmental demand of energy consumption in this manner, many blockchains thereafter adopted a proof of stake system. Rather than requiring energy to validate blocks, Cardano uses the proof of stake (POS) systems require the ownership of the blockchains cryptocurrency to validate blocks. In this case, rather than the more energy you use being correlated to greater blockchain validation rewards, the more money you have correlates to greater blockchain validation rewards (in this case, knows as staking rewards).",
+        descriptionAda: "Ethereum began using POW similar to bitcoin. However, eversince the merge, Ethereum uses POS similar to Cardano",
+        image: "/images/blog/term_3.jpg",
+        date: "22 Feb",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        id: "term_4",
+        text: "Ouroboros...",
+        title: "Consensus Algorithm",
+        description: "Ouroboros",
+        descriptionAda: "Casper",
+        image: "/images/blog/term_4.jpg",
+        date: "18 Jan",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        id: "term_5",
+        text: "Cardano is a blockchain like Bitcoin. ...",
+        title: "Slot",
+        description: "Cardano is a blockchain like Bitcoin. As such, it is a chain of blocks that record transactions. A slot is full of blocks that are verified by nodes. There is a new slot every second. A slot does not have to be full of blocks and can be empty. As of writing this (5/30/2022) it is common to say that a block occurs every 20 seconds or 20 slots. But this will largely depend on network traffic.",
+        descriptionAda: "---",
+        image: "/images/blog/term_5.jpg",
+        date: "15 Jan",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        id: "term_6",
+        text: "an epoch represents a period on ...",
+        title: "Epoch",
+        description: "an epoch represents a period on the Cardano blockchain. It represents a section of time where slot leaders are selected to act as the validators for slots/blocks, a system required by the POS setup. An epoch lasts 5 days. A slot leader is selected for every block, but it is decided at the beginning of each epoch.",
+        descriptionAda: "---",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        id: "term_7",
+        text: "Collateral, similar to gas on Ethereum, are in place to prevent denial of service attacks...",
+        title: "Fees for smart contracts",
+        description: "Collateral, similar to gas on Ethereum, are in place to prevent denial of service attacks. However, contrary to gas fees, it is uncommon (rare in fact) for them to be spent. Cardano has a two-phase validation process. The first phase checks if a transaction is constructed correctly. Phase 2 cruns the script included within a transaction. Phase 1, when validated by the blockchain, requires resources and therefore extracts a fee. If phase 1 passes but phase 2 does not, the collateral is consumed to compensate the nodes for effort. However, it is typical for phase 1 to fail if the transaction is not correct and does not fit parameters of script. It is my understanding that it would take a lot of deliberate effort to spend collateral (have phase 1 pass but phase 2 not). For more information: https://docs.cardano.org/plutus/collateral-mechanism",
+        descriptionAda: "Ethereum uses gas fees inorder to prevent denial of service attacks. Without fees, which scale with smart contract complexity, a malicious used could create a very complicated or frequenct contract that bogged down the network.",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        id: "term_8",
+        text: "On blockchains, an address is a hash of a public key, and can be used to send funds to the owner of that....",
+        title: "Addresses",
+        description: "On blockchains, an address is a hash of a public key, and can be used to send funds to the owner of that public key. On Cardano, an address is the product of both the public key and the staking key of the staking pool that the wallet in question is delegating too. If there is no staking pool connected, the address is simply a product of the public key.",
+        descriptionAda: "---",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        id: "term_9",
+        text: "In order to avoid fees everytime staking rewards are sent to all the members of a staking pool...",
+        title: "Reward Address",
+        description: "In order to avoid fees everytime staking rewards are sent to all the members of a staking pool, a separate address for rewards is created. Fees occur once an owner of a wallet decides to transfer their staking rewards from the rewards address into their spendable address.",
+        descriptionAda: "---",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        id: "term_10",
+        text: "Lovelace is the fractionalized unit of ADA. In other words, the lovelace is to ADA ...",
+        title: "Token sub-unit",
+        description: "Lovelace is the fractionalized unit of ADA. In other words, the lovelace is to ADA as cents are to the dollar. 1,000,000 Lovelace = 1 ADA. Almost all code written for the Cardano blockchain is in the units of lovelace.",
+        descriptionAda: "---",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        id: "term_11",
+        text: "As seen on cardanoscan. Refers to the staking address that the address in question delegates to....",
+        title: "Controlled Stake Key",
+        description: "As seen on cardanoscan. Refers to the staking address that the address in question delegates to.",
+        descriptionAda: "---",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        id: "term_12",
+        text: "BECH32 is the encryption algorithm used to encode Cardano addresses in the Shelley era....",
+        title: "Address encoding",
+        description: "BECH32 is the encryption algorithm used to encode Cardano addresses in the Shelley era.",
+        descriptionAda: "---",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Proof of Stake (PoS)",
+        descriptionAda: 'PoS stands for "Proof of Stake," which is a type of consensus algorithm used by some blockchain networks to validate transactions and add new blocks to the blockchain. In a proof-of-stake system, validators (also called "stakers" or "forgers") are chosen to create new blocks and verify transactions based on the amount of cryptocurrency they hold and "stake" as collateral.\n\nIn a PoS system, validators are required to put up a certain amount of cryptocurrency (such as Cardano or Ethereum) as a security deposit, or "stake." This stake serves as collateral to ensure that validators act honestly and follow the rules of the network, because if they act maliciously or attempt to compromise the network, they risk losing their stake.\n\nThe process of selecting validators in a PoS system can be done in different ways, such as through random selection or based on the size of a validator\'s stake. Once a validator is selected to create a new block, they are responsible for adding valid transactions to the block and broadcasting it to the network. Other validators then validate the block and add it to the blockchain if it meets the consensus rules.\n\nOverall, PoS is seen as a more energy-efficient and environmentally-friendly alternative to the Proof of Work (PoW) consensus algorithm used by Bitcoin, because it does not require validators to solve complex mathematical problems in order to add new blocks to the blockchain.',
+        description: "In Cardano, PoS stands for \"Proof of Stake,\" which is the consensus algorithm used by the Cardano blockchain to validate transactions and add new blocks to the blockchain. Cardano's PoS consensus algorithm is called Ouroboros and it was specifically designed to be secure, energy-efficient, and scalable.\n\nIn Cardano's PoS system, validators, also known as \"stakeholders\", are randomly selected to create new blocks and validate transactions based on the amount of ADA cryptocurrency they have \"staked\" or locked up as collateral. These validators are responsible for adding valid transactions to the blocks and maintaining the network's security and integrity.\n\nCardano's PoS system has several advantages over other consensus mechanisms, such as PoW (Proof of Work), used by Bitcoin. PoS requires significantly less energy consumption than PoW because validators do not need to solve complex mathematical problems in order to create new blocks. This makes Cardano a more environmentally-friendly and energy-efficient blockchain.\n\nMoreover, Cardano's PoS system also helps prevent centralization by ensuring that no single validator has too much control over the network. Validators are incentivized to act honestly because they risk losing their staked ADA if they act maliciously.\n\nOverall, Cardano's PoS algorithm is a crucial component of the network's design, and it is one of the reasons why Cardano has become a popular and promising blockchain platform.",
+        id: "term_13",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Ouroboros",
+        descriptionAda: "---",
+        description: "Ouroboros is a proof-of-stake consensus algorithm that is used by the Cardano blockchain. It is designed to secure the network and verify transactions by allowing users to stake their ADA (the Cardano cryptocurrency) as collateral in order to participate in the consensus process.\n\nIn Ouroboros, a group of validators, also known as stakeholders, are randomly selected to form a slot leader schedule for a given time period, or epoch. These slot leaders are responsible for creating new blocks and verifying transactions, and they are incentivized to act honestly because they have staked their own ADA.\n\nThe Ouroboros algorithm uses a cryptographic technique called a verifiable random function (VRF) to ensure that the selection of slot leaders is fair and unpredictable. This helps to prevent any single entity from dominating the network, which could lead to centralization and compromise the security of the blockchain.\n\nOverall, the Ouroboros algorithm is designed to be highly secure, energy-efficient, and scalable, and it has been recognized for its innovative approach to consensus in the blockchain space.",
+        id: "term_14",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Encryption",
+        descriptionAda: 'Encryption is the process of converting plain or "plaintext" data into a coded or "encrypted" format using a specific algorithm, so that it becomes unreadable to anyone who does not have the key or password to decrypt it. Encryption is commonly used for secure communication, storage of sensitive information, and protecting data privacy.\n\nThe encrypted data, or "ciphertext," can only be decrypted and turned back into plaintext by someone who has the correct key or password, which is typically only known by the intended recipient. This ensures that if an unauthorized person gains access to the ciphertext, they will not be able to understand its contents without the decryption key.\n\nThere are many different encryption algorithms, ranging from simple ones like Caesar Cipher to more complex ones like AES (Advanced Encryption Standard) or RSA (Rivest\u2013Shamir\u2013Adleman). These algorithms use different techniques and mathematical functions to scramble the data and make it unreadable to anyone who does not have the correct key.\n\nEncryption is an important tool in ensuring data privacy and security in the digital age, and it is used widely in industries such as finance, healthcare, and government.',
+        description: "Encryption plays a key role in the security of the Cardano blockchain. Cardano uses encryption to protect the privacy of user data and transactions, ensuring that sensitive information is kept confidential and secure.\n\nFor instance, when a user sends an ADA cryptocurrency transaction on the Cardano blockchain, the transaction is encrypted using advanced cryptographic algorithms to ensure that only the intended recipient can access the transaction details. This protects the user's privacy and helps prevent unauthorized access to their funds or personal information.\n\nCardano also uses encryption to secure its wallets and keys. Wallets are used to store and manage cryptocurrency on the Cardano blockchain, and they are protected by strong encryption methods to prevent unauthorized access. Keys are used to sign and verify transactions on the blockchain, and they are also encrypted to ensure their security.\n\nIn addition, Cardano's consensus algorithm, Ouroboros, uses advanced encryption methods to secure the network and protect against attacks. Ouroboros relies on complex mathematical functions and cryptographic protocols to ensure that transactions are validated and added to the blockchain in a secure and trustworthy way.\n\nOverall, encryption is an essential component of the Cardano blockchain, helping to ensure the security and privacy of users' data and transactions, and maintaining the integrity of the network.",
+        id: "term_15",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Casper",
+        descriptionAda: "Casper is a term used to refer to the implementation of the Proof of Stake (PoS) consensus algorithm on the Ethereum blockchain. Casper was first proposed in 2014 as a replacement for Ethereum's existing Proof of Work (PoW) algorithm, which is used to validate transactions and add new blocks to the blockchain.\n\nThe Casper protocol was designed to make Ethereum more energy-efficient and secure by reducing the amount of computational power required to validate transactions and create new blocks. Instead of miners competing to solve complex mathematical problems to add new blocks to the blockchain, validators stake their ETH cryptocurrency to participate in the consensus process. Validators are randomly selected to create new blocks, and their staked ETH serves as collateral to ensure they act honestly and do not attempt to compromise the network.\n\nThe Casper protocol was originally intended to be implemented as a hybrid PoW/PoS system, with PoW used to validate transactions initially and PoS used to finalize the blocks. However, in 2021, Ethereum underwent a major upgrade called Ethereum 2.0, which fully replaced PoW with PoS and implemented the Casper protocol.\n\nOverall, Casper is an important part of the ongoing development of the Ethereum blockchain, helping to make it more energy-efficient, secure, and scalable, and to enable a wide range of decentralized applications and smart contracts.",
+        description: "---",
+        id: "term_16",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Aiken",
+        descriptionAda: "---",
+        description: "Aiken is a new programming language and toolkit for developing smart contracts on the Cardano blockchain. It is geared towards robustness and developer experience.\n\nAiken takes inspiration from many modern languages such as Gleam, Rust, and Elm, which are known for friendly error messages and an overall excellent developer experience. We believe Cardano deserves a dedicated language with these kinds of features, developed in the open with the community. This is a common misconception. The current Cardano node implementation does indeed happen to be written in Haskell. The virtual machine for executing smart contracts that comes baked into the node is also implemented in Haskell. But that does not mean that it is Haskell which is executed by the smart contract virtual machine.\n\nThe virtual machine is a language interpreter which executes a smart contract language called 'Untyped Plutus Core' (abbrev. UPLC) often referred to simply as 'Plutus'.\n\nYet UPLC isn't something developers are expected to write by hand. Instead, it is a compilation target (like WebAssembly for the world wide web). Oddly enough, until recently, the only established framework that produced UPLC from a high-level syntax was called 'Plutus-Tx' and happened to be a Haskell framework.\n\nAiken changes the game by introducing a new framework that compiles straight to UPLC.\n\nVisit https://aiken-lang.org/ to learn more.",
+        id: "term_17",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Haskell",
+        descriptionAda: "---",
+        description: "Haskell is a functional programming language that is used by Cardano for its core codebase. The Cardano blockchain is built using Haskell, which is known for its high level of security, reliability, and mathematical rigor.\n\nHaskell was chosen as the primary programming language for Cardano because of its strong focus on correctness and formal verification, which is essential for building a secure and trustworthy blockchain platform. Haskell's static typing system also helps prevent bugs and errors, making it a good choice for mission-critical systems like Cardano.\n\nCardano's use of Haskell also allows for greater code modularity, which makes the platform more flexible and easier to maintain. Haskell's strong support for parallelism and concurrent programming also helps make Cardano more scalable and able to handle a large number of transactions.\n\nOverall, Haskell is an important part of Cardano's architecture, helping to ensure the security, reliability, and scalability of the platform.",
+        id: "term_18",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Minswap",
+        descriptionAda: "---",
+        description: "Minswap is a multi-pool decentralized exchange on Cardano. Swap tokens with minimal cost, minimal time and maximal convenience.",
+        id: "term_19",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "MeshJS",
+        descriptionAda: "---",
+        description: "Mesh is an open-source library providing numerous tools to easily build powerful dApps on the Cardano blockchain. Mesh is developed closely to network updates. By using Mesh, your application will always be ready for the latest network changes, so you can focus on building your application. Frontend components and useful React hooks, Mesh provides everything you need to bring your Web3 user interface to life.",
+        id: "term_20",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Cardanoscan",
+        descriptionAda: "---",
+        description: "Cardanoscan is a block explorer for the Cardano blockchain. A block explorer is a tool that allows users to view and explore data on a blockchain, such as the transaction history, current network status, and other important information.\n\nCardanoscan provides a user-friendly interface for users to search and view information about Cardano addresses, transactions, and blocks. Users can also view information about the current state of the Cardano network, such as the number of nodes, the total amount of ADA in circulation, and other statistics.\n\nIn addition to providing basic blockchain information, Cardanoscan also offers more advanced features such as tools for tracking market data and analyzing historical trends. This makes it a valuable resource for traders, investors, and developers who are interested in monitoring and analyzing the Cardano blockchain.\n\nOverall, Cardanoscan is a useful tool for anyone who wants to explore the Cardano blockchain and stay up-to-date on its latest developments.",
+        id: "term_21",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "NuFi",
+        descriptionAda: "NuFi is a crypto wallet for cryptocurrencies and digital assets. Stake, manage and store crypto in one interface. Multi-account and NFT gallery support. It supports Cardano, Ethereum, Milkomeda C1 and Solana blockchains",
+        description: "---",
+        id: "term_22",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Wallets",
+        descriptionAda: "Wallets are software applications or hardware devices used to store and manage cryptocurrencies, such as Bitcoin, Ethereum, and Cardano. Wallets allow users to securely store and manage their cryptocurrencies, as well as send and receive payments on the blockchain.\n\nThere are two main types of wallets: hot wallets and cold wallets. Hot wallets are connected to the internet and are generally more convenient to use, but they are also more vulnerable to security risks such as hacking or malware. Cold wallets, on the other hand, are offline and are considered more secure because they are less vulnerable to hacking or other online threats.\n\nThere are different types of wallets within each category. Some examples of hot wallets include mobile wallets, desktop wallets, and web-based wallets. Mobile wallets are designed for use on smartphones and tablets, while desktop wallets are software applications that can be downloaded and installed on a computer. Web-based wallets are accessed through a web browser.\n\nSome examples of cold wallets include hardware wallets, which are physical devices that store the private keys needed to access a cryptocurrency wallet offline, and paper wallets, which are physical pieces of paper that contain the private keys printed on them.\n\nOverall, wallets are an essential tool for managing cryptocurrencies, and it is important for users to choose a wallet that meets their specific needs and security requirements.\n\nSome examples of Ethereum based wallets:\n\nMetamask\nTrust Wallet\nNuFi",
+        description: "Wallets are software applications or hardware devices used to store and manage cryptocurrencies, such as Bitcoin, Ethereum, and Cardano. Wallets allow users to securely store and manage their cryptocurrencies, as well as send and receive payments on the blockchain.\n\nThere are two main types of wallets: hot wallets and cold wallets. Hot wallets are connected to the internet and are generally more convenient to use, but they are also more vulnerable to security risks such as hacking or malware. Cold wallets, on the other hand, are offline and are considered more secure because they are less vulnerable to hacking or other online threats.\n\nThere are different types of wallets within each category. Some examples of hot wallets include mobile wallets, desktop wallets, and web-based wallets. Mobile wallets are designed for use on smartphones and tablets, while desktop wallets are software applications that can be downloaded and installed on a computer. Web-based wallets are accessed through a web browser.\n\nSome examples of cold wallets include hardware wallets, which are physical devices that store the private keys needed to access a cryptocurrency wallet offline, and paper wallets, which are physical pieces of paper that contain the private keys printed on them.\n\nOverall, wallets are an essential tool for managing cryptocurrencies, and it is important for users to choose a wallet that meets their specific needs and security requirements.\n\nSome examples of Cardano based wallets:\n\nEternl\nNuFi\nFlint\nNami",
+        id: "term_23",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Blocktime",
+        descriptionAda: "The block time of Ethereum is approximately 13-15 seconds, although it can vary slightly depending on network conditions and other factors. Ethereum uses a proof-of-work (PoW) consensus algorithm, which is different from the proof-of-stake (PoS) algorithm used by Cardano. In a PoW system, miners compete to solve complex mathematical problems to validate transactions and create new blocks, which contributes to the overall security of the network. The block time of Ethereum is intentionally set to be shorter than that of Bitcoin (which has a block time of approximately 10 minutes) in order to allow for faster transaction processing and confirmation times. However, the shorter block time also means that Ethereum has a higher orphan rate (i.e. blocks that are discarded because they were not included in the main chain), which can have implications for network stability and security.",
+        description: "The block time of Cardano is approximately 20 seconds. This means that a new block is added to the Cardano blockchain every 20 seconds on average. The Cardano blockchain uses a unique consensus algorithm called Ouroboros, which is a proof-of-stake algorithm designed to be energy-efficient and scalable while maintaining a high level of security. The block time of 20 seconds is a deliberate design choice intended to balance the need for fast transaction processing with the security and reliability of the network. By having a relatively short block time, Cardano is able to handle a large number of transactions per second and offer fast confirmation times for users.",
+        id: "term_24",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "slot",
+        descriptionAda: "---",
+        description: "In Cardano, a slot is a fixed period of time during which a new block is added to the blockchain. Each slot has a fixed duration of 20 seconds, which is the average time it takes to create a new block on the Cardano network.\n\nThe Cardano blockchain is designed to operate in epochs, with each epoch consisting of a fixed number of slots. Currently, each epoch consists of 21,600 slots, which corresponds to approximately 5 days. During each slot, a single block is created by a randomly selected slot leader, who is responsible for validating transactions and adding them to the blockchain.\n\nThe slot leader for each slot is determined by the Ouroboros proof-of-stake consensus algorithm, which selects slot leaders based on their stake and a verifiable random function (VRF). This helps to prevent any single entity from controlling the network and ensures that block creation is decentralized.\n\nThe use of fixed-length slots is a key part of the Cardano design, as it enables the network to be highly scalable and able to handle a large number of transactions. By using a predictable, fixed-length time period, Cardano is able to optimize network performance and ensure that the blockchain operates efficiently and reliably.",
+        id: "term_25",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Blockfrost",
+        descriptionAda: "---",
+        description: "API for Cardano decentralized blockchain. Accessing and processing information stored on the blockchain is not trivial. We provide abstraction between you and blockchain data, taking away the burden of complexity, so you can focus on what really matters - developing your applications. The basic tier is and always will be free of charge. We nurture development and the Cardano ecosystem. However, if you want to support us, please consider upgrading.",
+        id: "term_26",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Infura",
+        descriptionAda: "Infura's development suite provides instant, scalable API access to the Ethereum and IPFS networks. The Infura API suite provides instant access over HTTPS and WebSockets to the Ethereum network. Infrastructure for your decentralized application has never been easier. Infura is powered by a cutting-edge microservice-driven architecture that dynamically scales to support our APIs. Developers can connect to Ethereum and IPFS via HTTPS and WebSocket, where request response times are up to 20 times faster than other services and self-hosted solutions. ",
+        description: "---",
+        id: "term_27",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "API",
+        descriptionAda: 'API stands for "Application Programming Interface." An API is a set of protocols, routines, and tools used to build software applications and facilitate communication between different software systems.\n\nAn API specifies how software components should interact, allowing applications to communicate with each other without requiring developers to know the underlying implementation details. APIs are commonly used in web and mobile applications to access and share data between different systems.\n\nThere are many different types of APIs, ranging from web APIs that allow web applications to interact with each other, to operating system APIs that allow software to interact with the underlying hardware and system resources.\n\nIn the context of blockchain technology, APIs are used to allow software applications to interact with blockchain networks and access data on the blockchain. For example, Cardano provides an API for developers to build decentralized applications (dApps) on the Cardano blockchain, and Ethereum provides an API for developers to interact with smart contracts on the Ethereum blockchain.\n\nOverall, APIs are a crucial part of modern software development, enabling developers to create complex applications that can interact with multiple systems and services.\n\nExamples of Ethereum API as a service:\n\nInfura',
+        description: 'API stands for "Application Programming Interface." An API is a set of protocols, routines, and tools used to build software applications and facilitate communication between different software systems.\n\nAn API specifies how software components should interact, allowing applications to communicate with each other without requiring developers to know the underlying implementation details. APIs are commonly used in web and mobile applications to access and share data between different systems.\n\nThere are many different types of APIs, ranging from web APIs that allow web applications to interact with each other, to operating system APIs that allow software to interact with the underlying hardware and system resources.\n\nIn the context of blockchain technology, APIs are used to allow software applications to interact with blockchain networks and access data on the blockchain. For example, Cardano provides an API for developers to build decentralized applications (dApps) on the Cardano blockchain, and Ethereum provides an API for developers to interact with smart contracts on the Ethereum blockchain.\n\nOverall, APIs are a crucial part of modern software development, enabling developers to create complex applications that can interact with multiple systems and services.\n\nExamples of Cardano API as a service:\n\nBlockfrost',
+        id: "term_28",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Tangent Protocol",
+        descriptionAda: "---",
+        description: "---",
+        id: "term_29",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Layer 1",
+        descriptionAda: 'A Layer 1 blockchain is a type of blockchain architecture that refers to the underlying infrastructure and technology of a blockchain network. Layer 1 blockchains are the foundation layer of a blockchain network and provide the basic functionality of validating transactions, creating new blocks, and maintaining the integrity of the network.\n\nLayer 1 blockchains are sometimes referred to as "base layer" blockchains, and they typically use a consensus mechanism, such as proof-of-work (PoW) or proof-of-stake (PoS), to validate transactions and add new blocks to the blockchain.\n\nExamples of Layer 1 blockchains include Bitcoin, Ethereum, and Cardano. These blockchains provide a range of features and capabilities, including the ability to create smart contracts, develop decentralized applications (dApps), and support various types of digital assets and tokens.\n\nOne of the key benefits of Layer 1 blockchains is their high level of security and decentralization, which is achieved through their consensus mechanisms and distributed network architecture. However, Layer 1 blockchains can also have limitations in terms of scalability, speed, and transaction costs, which has led to the development of Layer 2 scaling solutions and other blockchain technologies.',
+        description: 'A Layer 1 blockchain is a type of blockchain architecture that refers to the underlying infrastructure and technology of a blockchain network. Layer 1 blockchains are the foundation layer of a blockchain network and provide the basic functionality of validating transactions, creating new blocks, and maintaining the integrity of the network.\n\nLayer 1 blockchains are sometimes referred to as "base layer" blockchains, and they typically use a consensus mechanism, such as proof-of-work (PoW) or proof-of-stake (PoS), to validate transactions and add new blocks to the blockchain. Cardano is a layer 1 blockchain.',
+        id: "term_30",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Cardano node",
+        descriptionAda: "---",
+        description: "The cardano-node is the top-level repository for the node, which also aggregates components from other packages: consensus, ledger and networking, configurations, CLI, and logging and monitoring. The node no longer incorporates wallet or explorer functionality. The wallet backend and explorer backend are separate components that run in separate external processes that communicate with the node via local IPC.",
+        id: "term_31",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Cardano GraphQL",
+        descriptionAda: "---",
+        description: "Cardano GraphQL is cross-platform, typed, and queryable API for Cardano. It provides a query interface to all the blockchain data via GraphQL, which is a convenient choice for client applications based on web technologies (applications written in JavaScript, or any other browser-based languages, for example) that use HTTP/REST APIs to talk to other services.",
+        id: "term_32",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "DB Sync",
+        descriptionAda: "---",
+        description: "Cardano DB Sync is one of the core Cardano components, which provides a convenient way to find and query historical information from the Cardano blockchain through the use of a Structured Query Language (SQL) relational database. Db Sync connects to the local node as a client and synchronizes with the on-chain activity.",
+        id: "term_33",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "SMASH",
+        descriptionAda: "---",
+        description: "SMASH is a metadata aggregation server that manages metadata for stake pools. The functionality provided by SMASH supports stake pool operations and the delegation ecosystem with its standardized framework for listing valid stake pools with verified metadata.\n\nCardano Shelley introduced the concept of stake pools - reliable server nodes that keep an aggregated stake of pool operators and delegators in a single entity. Stake pools are registered on-chain, and their on-chain data (such as information required to calculate rewards) is critical to the operation of the ledger. Stake pools also possess metadata that helps users to make a rational choice of a stake pool to delegate to. This metadata is stored off-chain, as it might reflect sensitive content. Such an approach allows for a certain degree of decentralized censorship.\n\nBut on the other hand, off-chain metadata storage poses a challenge of open access by different users. On-chain stake pool registrations contain an URL pointer to the off-chain metadata and a content hash that can be fetched from a specific stake pool. This might cause both performance and privacy issues. Another crucial aspect to address is the stake pool\u2019s \u201Cticker\u201D name, which is the short name a stake pool is recognized by. Ticker names might reflect prominent brands or trademarks that should not be duplicated, as this might lead to confusion. SPOs running multiple pools might want to use the same metadata for all their pools, for example, which might lead to these pools appearing with the same ticker name. This would not be an ideal situation.\n\nTo support stake pool operations and provide visibility over the delegation ecosystem, we have created a Stake Pool Metadata Aggregation Server \u2013 SMASH.",
+        id: "term_34",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Cardano RTView",
+        descriptionAda: "---",
+        description: "RTView is a real-time monitoring program that provides visibility on the state of running Cardano nodes. It supports multiple node monitoring, even if the nodes work on different machines.\n\nRTView enables developers, testers, and general users who are running nodes connected to the real cluster to see what is going on, and how the nodes are performing. It gives visibility on: how much memory and CPU is being used, the state of the blockchain, how many blocks have been forged by a particular node, how many transactions have been processed, and so on.\n\nIt is a cross-platform tool compatible with Windows, Linux, and macOS, and has a web-based user interface so you can use any browser that you want.\n\nThe main benefit of RTView is simplicity. It is simple to use; technically there is no installation, you just unpack an archive and run an executable. It is also simple to configure through an interactive dialog and shows particular changes the user should make in the node configuration files. It is also simple to view with any browser.\n\nRTView replaces the LiveView-mode feature in Cardano node and solves any previous LiveView limitations. Following the next release, LiveView will be removed from the node which will make the node much simpler and lighter, in terms of dependencies.",
+        id: "term_35",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "ISPO",
+        descriptionAda: "---",
+        description: "ISPO stands for Initial Stake Pool Offering. It is a term used in the Cardano blockchain ecosystem to refer to a fundraising model where a new stake pool operator (SPO) can offer a certain amount of their stake in exchange for ADA (Cardano's native cryptocurrency) from investors who want to delegate their ADA to the pool.\n\nThe idea behind ISPO is to give new SPOs a way to attract delegators and build their stake pools while also raising funds to cover their initial setup and operational costs. In an ISPO, investors who stake their ADA with the new pool operator can receive rewards in the form of the pool's earnings, which are distributed based on the amount of ADA that is staked with the pool.\n\nISPOs are often used as a way to encourage decentralization on the Cardano network by enabling new SPOs to start their own stake pools and compete with larger, more established pools. By allowing small operators to attract delegators and grow their stake, ISPOs can help to create a more diverse and decentralized network, which is considered to be a key feature of the Cardano ecosystem.\n\nOverall, ISPOs are an innovative fundraising and staking model that allows new operators to enter the Cardano ecosystem, while also providing incentives for delegators to support new stake pools and contribute to the overall decentralization and security of the network.",
+        id: "term_36",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Cardano serialization library",
+        descriptionAda: "---",
+        description: "This is a library for serialization and deserialization of data structures used in Cardano\u2019s Haskell implementation of Shelley along with useful utility functions.\n\nUsing the library\nDue to the portability of Rust, you can bind to the native Rust library from any common programming language (including C and WebAssembly). This library generates both Typescript and Flow type definitions, and you can check out possible options by just looking at Flow types. You can also explore the example folder to see how to use this library from Typescript and experiment with it.\n\nBenefits of using this library\nSerialization/deserialization code is automatically generated from Cardano\u2019s official specification, which guarantees it can easily stay up to date. This is enabled due to the use of an EMURGO-written tool called cddl-codegen, which can be re-used for other tasks such as the automatic generation of a Rust library for Cardano metadata specifications.\n\nIt is also easy to create scripts in Rust or WASM to share with stake pools, or even embed inside an online tool. The library is powerful and flexible enough to be used to power wallets and exchanges.",
+        id: "term_37",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Daedalus",
+        descriptionAda: "---",
+        description: "Daedalus wallet is a full-node hierarchical deterministic (HD) desktop wallet for the ada currency. Daedalus comes bundled with a full Cardano node, and it stores the entire history of Cardano blockchain and validates all blocks and transactions for fully trustless and autonomous operation.\n\nKey features\nEasy installation with one-click setup of bundled Cardano node\nLocally stored wallets and encrypted private keys, not shared with third-party servers\nTrustless operation with locally running full Cardano node which independently validates full transaction history of the blockchain\nSupports Cardano network by participating in Cardano protocol\nWallet backup and restoration using mnemonics phrases\nStaking Support\nComplete autonomy without reliance on third-party servers and services\nPaper wallet generator for offline storage of funds",
+        id: "term_38",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Explorer",
+        descriptionAda: "An explorer in the context of blockchain technology is a tool or website that allows users to view and explore information about a specific blockchain. Block explorers are typically used to view information about transactions, addresses, and blocks on the blockchain, as well as network statistics and other relevant data.\n\nBlock explorers are a useful tool for anyone who wants to understand how a particular blockchain works, monitor transaction activity, or explore the network's history and current state. They can also be used by developers and researchers to analyze the blockchain's performance, identify trends, and gain insights into the behavior of users and applications on the network.\n\nExamples of popular blockchain explorers for ethereum include:\n\nEtherscan\nEthplorer",
+        description: "An explorer in the context of blockchain technology is a tool or website that allows users to view and explore information about a specific blockchain. Block explorers are typically used to view information about transactions, addresses, and blocks on the blockchain, as well as network statistics and other relevant data.\n\nBlock explorers are a useful tool for anyone who wants to understand how a particular blockchain works, monitor transaction activity, or explore the network's history and current state. They can also be used by developers and researchers to analyze the blockchain's performance, identify trends, and gain insights into the behavior of users and applications on the network.\n\nExamples of popular blockchain explorers for Cardano include:\n\nCEXplorer\nCardanoscan",
+        id: "term_39",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "SPO",
+        descriptionAda: "---",
+        description: "SPO stands for Stake Pool Operator. In the Cardano blockchain ecosystem, a stake pool is a group of network nodes that work together to process transactions and create new blocks on the blockchain. Stake pool operators are responsible for running and maintaining these nodes, and they earn rewards in the form of ADA (Cardano's native cryptocurrency) for their contributions to the network.\n\nStake pool operators play an important role in the Cardano ecosystem, as they help to decentralize the network and ensure its security and stability. By running stake pools, operators can attract delegators who stake their ADA with the pool, which helps to increase the pool's chances of being selected to create new blocks on the blockchain.\n\nBecoming an SPO typically involves setting up and running one or more nodes on the Cardano network, which requires technical expertise and resources. SPOs must also compete with other pool operators to attract delegators and earn rewards, which can be a challenging and competitive process.\n\nOverall, SPOs are a key part of the Cardano ecosystem, and they play a critical role in maintaining the security and decentralization of the network. By incentivizing stake pool operation and delegator participation, Cardano aims to create a more resilient and decentralized blockchain ecosystem that can support a wide range of decentralized applications and use cases.",
+        id: "term_40",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Native Tokens",
+        descriptionAda: "---",
+        description: "Native tokens is a new feature that enables the transacting of multi-assets on Cardano. Users can transact with ada, and an unlimited number of user-defined (custom) tokens natively.\n\nNative support offers distinct advantages for developers: there is no need to create smart contracts to handle custom tokens, for example, which removes a layer of added complexity and potential for manual errors since the ledger handles all token-related functionality.\n\nThe native tokens feature extends the existing accounting infrastructure defined in the ledger model (originally designed for processing ada-only transactions) to accommodate transactions using a range of assets. These assets include ada and a variety of user-defined custom token types.\n\nRead more about native tokens and how they compare to ada and ERC20 and watch our native tokens explainer video.\n\nBrowse native tokens created on the Cardano blockchain and see their transactions in an interactive dashboard that allows filtering and searching: Native Tokens Dashboard.",
+        id: "term_41",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "ERC20",
+        descriptionAda: "ERC20 is an Ethereum token standard, widely used for the purpose of token issuance on various platforms. The peculiarity of this token type lies in the fact that it can represent value and serve for such purposes as payments, value transfer, exchange, rewards or incentives, access to services and products, represent voting rights, etc. Also, these tokens can hold both utility and security features, which opens a range of possible use cases for businesses, applications, and enterprises.\n\nOn Cardano, users can create native tokens that will serve the above-mentioned purposes and in addition, it is possible to create unique (non-fungible) assets representing value like real estate or intellectual rights, for example (in Ethereum, this functionality requires a separate standard, ERC721).\n\nUnlike ERC20 tokens, the tracking and accounting of native tokens is supported by the ledger natively (ERC20 tokens require smart contracts to achieve the same thing). An important benefit of using native tokens is that they do not require smart contracts to transfer their value and can be transferred alongside other token types. Also, unlike ERC20, native tokens do not require special transfer fees or additional event-handling logic to track transactions.",
+        description: "---",
+        id: "term_42",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Plutus",
+        descriptionAda: "---",
+        description: "Plutus is the native smart contract language for Cardano. It is a Turing-complete language written in Haskell, and Plutus smart contracts are effectively Haskell programs. By using Plutus, you can be confident in the correct execution of your smart contracts. It draws from modern language research to provide a safe, full-stack programming environment based on Haskell, the leading purely-functional programming language.",
+        id: "term_43",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Plutus scripts",
+        descriptionAda: "---",
+        description: "Cardano uses scripts to validate actions. These scripts, which are pieces of code, implement pure functions with True or False outputs. Script validation is the process of invoking the script interpreter to run a given script on appropriate arguments. A script is a program that decides whether the transaction that spends the output is authorized to do so. Such a script is called a validator script \u2013 it validates whether the spending is allowed.\n\nAs an example, a simple validator script could check whether a particular key signed the spending transaction \u2013 this would exactly replicate the behavior of the simpler pay-from-pubkey outputs. However, with a bit of careful extension, we can use scripts to express more useful logic on the chain than that.",
+        id: "term_44",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Datum",
+        descriptionAda: "---",
+        description: "this is a piece of data attached to the output that the script is locking. This is typically used to carry state.",
+        id: "term_45",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Redeemer",
+        descriptionAda: "---",
+        description: "this is a piece of data attached to the spending input. This is typically used to provide an input to the script from the spender.",
+        id: "term_46",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "EUTXO",
+        descriptionAda: "---",
+        description: "Cardano (like Bitcoin) is an Unspent Transaction Output (UTXO)-based blockchain, which utilizes a different accounting model for its ledger from other account-based blockchains like Ethereum. Cardano implements an innovative Extended Unspent Transaction Output (EUTXO) model, which is introduced by the Alonzo upgrade to support multi-assets and smart contracts.\n\nhe EUTXO model extends the UTXO model in two ways:\n\nIt generalizes the concept of \u2018address\u2019 by using the lock-and-key analogy. Instead of restricting locks to public keys and keys to signatures, addresses in the EUTXO model can contain arbitrary logic in the form of scripts. For example, when a node validates a transaction, the node determines whether or not the transaction is allowed to use a certain output as an input. The transaction will look up the script provided by the output's address and will execute the script if the transaction can use the output as an input.\nThe second difference between UTXO and EUTXO is that outputs can carry (almost) arbitrary data in addition to an address and value. This makes scripts much more powerful by allowing them to carry state information.\nFurthermore, EUTXO extends the UTXO model by allowing output addresses to contain complex logic to decide which transactions can unlock them, and by adding custom data to all outputs. When validating an address, the script will access the data being carried by the output, the transaction being validated, and some additional pieces of data called redeemers, which the transaction provides for every input. By looking up all this information, the script has enough context to give a \u2018yes\u2019 or \u2018no\u2019 answer in what can be highly complex situations and use cases.\n\nEUTXO enables arbitrary logic in the form of scripts. This arbitrary logic inspects the transaction and the data to decide whether the transaction is allowed to use an input or not.\n",
+        id: "term_47",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Marlowe",
+        descriptionAda: "---",
+        description: "Marlowe offers financial contracts for blockchain that everyone can code. It is a domain-specific language (DSL) for writing and executing financial contracts that allows users to apply their domain expertise to write and manage contracts conveniently, without the steep learning curve associated with software development, blockchain, or smart contracts. With Marlowe, you can learn how to model financial products using this easy-to-learn language. It is a platform for decentralized finance (DeFi) that supports direct, peer-to-peer lending, contracts for difference (CFD), and other similar instruments. Marlowe contracts are straightforward as they are optimized for financial transactions, development platforms, and ensure a fast track for financial service providers to build expertise in smart contracts and blockchain technology.\n\nAs a special-purpose language, it is easier to read, write, and understand Marlowe contracts. It is also safer: some errors are impossible to write, and we can completely analyse contract behaviour without having to run a contract.",
+        id: "term_48",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Solidity ",
+        descriptionAda: "Solidity is a high-level programming language that is used to write smart contracts on the Ethereum blockchain. Smart contracts are self-executing contracts with the terms of the agreement between buyer and seller being directly written into lines of code. Solidity is a contract-oriented language, meaning it is specifically designed for writing smart contracts.\n\nSolidity is similar in syntax to JavaScript and C++, and it is compiled into bytecode that can be executed on the Ethereum Virtual Machine (EVM). Solidity provides a range of features and functionality, including support for complex data types, inheritance, and library contracts, as well as security features such as exception handling and function modifiers.\n\nSmart contracts written in Solidity can be used to implement a wide range of decentralized applications (dApps) and blockchain-based solutions, such as digital identity systems, supply chain management, decentralized finance (DeFi) applications, and more.\n\nSolidity is one of the most popular programming languages used for smart contract development on the Ethereum blockchain, and it has a large and active developer community. However, it is important to note that Solidity has some limitations and vulnerabilities, and it is essential for developers to follow best practices and ensure the security and reliability of their code.",
+        description: "---",
+        id: "term_49",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Catalyst",
+        descriptionAda: "---",
+        description: "Cardano Catalyst is a decentralized innovation fund and community-driven project incubator for the Cardano blockchain ecosystem. Catalyst is designed to encourage and support the development of decentralized applications (dApps) and other initiatives on the Cardano network.\n\nThe Catalyst program is funded by the Cardano treasury, which is managed by the Cardano community through a decentralized governance system. The program is designed to support innovation and entrepreneurship on the Cardano network by providing funding, resources, and support for community-led projects and initiatives.\n\nCatalyst is structured as a series of funding rounds, each of which has a specific theme or focus area. During each round, Cardano community members can submit proposals for projects or initiatives that they would like to see funded, and the community can vote on which proposals should receive funding.\n\nThe Cardano Catalyst program is designed to be a collaborative and inclusive initiative, and it is open to anyone who wants to contribute to the development and growth of the Cardano ecosystem. By providing a decentralized funding mechanism and community-driven support, Catalyst aims to foster innovation and create new opportunities for developers and entrepreneurs on the Cardano blockchain.",
+        id: "term_50",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Marlowe Playground",
+        descriptionAda: "---",
+        description: "The Marlowe Playground is available to develop, simulate, and test the process of writing smart contracts in a sandbox environment. Its purpose is to encourage all types of developers, even if you don\u2019t have prior Haskell or Javascript experience, to build financial products on Cardano. A set of tutorials is available. These outline example contracts and overview information on Marlowe and how contracts should be modelled.\n\nThe Marlowe Playground is the medium for end-to-end financial smart contract development. It provides a means for developers to not only write smart contract code, but to also perform preliminary iterative design using simulations, ability to formally verify, and ability to test smart contracts. These capabilities, paired with a purpose-built DSL for finance, ensures that the contracts are easy and straightforward to build, and that they are secure, verifiable, and rigorously tested.",
+        id: "term_51",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Plutus Pioneer program",
+        descriptionAda: "---",
+        description: "It is a program to recruit and train developers in Plutus for the Cardano ecosystem. When you join this program, you will become part of a group with access to a set of courses that teach you the core principles of how to code in both Haskell and Plutus. It will be highly interactive, with weekly videos, exercises, and Q&A sessions, along with exclusive access to the creators and key experts in the language. You will also be able to join a dedicated community channel, created to help pioneers connect to each other as you learn.",
+        id: "term_52",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "concurrency",
+        descriptionAda: "---",
+        description: "Concurrency may or may not improve a system\u2019s performance, throughput, or responsiveness. The amount of concurrency limits the maximum number of simultaneous operations that can be performed.\n\nTo obtain actual performance improvements in a UTXO-based blockchain, processors or other actors should be able to perform multiple actions simultaneously. The higher the level of concurrency, the higher the maximum possible parallelism. Such an approach then translates to performance improvements and throughput. It also provides significant advantages over account based systems (like Ethereum).\n\nDeploying DApps on UTXO ledgers is different\nCardano\u2019s approach to DApp deployment is different and thus it requires a learning curve and a different approach. This is like working with different programming languages: there is one goal \u2013 to deploy a solution, but so many programming languages to use for this purpose.\n\nMaximizing concurrency is a skill that needs to be learned: developers need to write code in a way that severely restricts the opportunities for contention (e.g., by avoiding shared states and accidental dependencies). The system must then translate this concurrency into parallelism. A number of developers have already identified ways to approach this, while others are still developing solutions. Simply transplanting lessons learned on one blockchain will not work; while the learning curve is a little steeper, the results make this worthwhile.\n\nEither way, it is important to understand that to deploy a scalable DApp on Cardano, a developer can\u2019t just use an adapted Ethereum contract. Cardano is based on the UTXO model; it is not account-based which means that a single on-chain state will not meet the concurrency property of Cardano. Instead, DApps should split up their on-chain state across many UTXOs. This will increase the concurrency in their application, thereby allowing higher throughput.\n\nTo learn more about scalability, you can read how to design a scalable Plutus application and to learn more about how to organise DApps on Cardano using patterns, read the order book pattern.",
+        id: "term_53",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Command line interface (CLI)",
+        descriptionAda: "---",
+        description: "The node\u2019s CLI tool is the \u201Cswiss army knife\u201D of the system. It can do almost everything, but it is quite low level and not very convenient because it\u2019s text-based and lacks a graphical user interface (GUI).\n\nThe CLI tool can:\n\nQuery the node for information\nSubmit transactions\nBuild and sign transactions\nManage cryptographic keys",
+        id: "term_54",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Node-to-Node IPC protocol",
+        descriptionAda: "---",
+        description: "The purpose of the node-to-node Inter-Process Communication (IPC) protocol is to allow for the exchange of blocks and transactions between nodes as part of the Ouroboros consensus algorithm.\n\nThe node-to-node protocol is a composite protocol, consisting of three \u2018mini-protocols\u2019:\n\nchain-sync: Used for following the chain and getting block headers.\nblock-fetch: Used for getting block bodies.\ntx-submission: Used for forwarding transactions.\nThese mini-protocols are multiplexed on a single long-running Transmission Control Protocol (TCP) connection between nodes. They can be run in both directions on the same TCP connection to allow for peer-to-peer (P2P) settings.\n\nThe overall protocol -and each mini-protocol- is designed for a trustless setting where both sides need to guard against Denial-of-Service (DoS) attacks. For example, each mini-protocol uses consumer-driven control flow, so a node only requests more work when it is ready, rather than having work pushed upon it.\n\nThe protocol design is modular and evolvable: version negotiation is used to agree on the set of mini-protocols to use, which allows additional or updated mini-protocols to be added over time without causing compatibility issues.",
+        id: "term_55",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Node-to-Client IPC",
+        descriptionAda: "---",
+        description: "The purpose of the node-to-client IPC protocol is to allow local applications to interact with the blockchain via the node. This includes applications such as wallet backends or blockchain explorers. The node-to-client protocol enables these applications to access the raw chain data and to query the current ledger state. It also provides the ability to submit new transactions to the system.\n\nThe node-to-client protocol uses the same design as the node-to-node protocol, but with a different set of mini-protocols, and using local pipes rather than TCP connections. As such, it is a relatively low-level narrow interface that exposes only what the node can provide natively. For example, the node provides access to all the raw chain data but does not provide a way to query data on the chain. The job of providing data services and more convenient higher level APIs is delegated to dedicated clients, such as cardano-db-sync and the wallet backend.\n\nThe node-to-client protocol consists of three mini-protocols:\n\nchain-sync: Used for following the chain and getting blocks\nlocal-tx-submission: Used for submitting transactions\nlocal-state-query: Used for querying the ledger state\nThe node-to-client version of chain sync uses full blocks, rather than just block headers. This is why no separate block-fetch protocol is needed. The local-tx-submission protocol is like the node-to-node tx-submission protocol but simpler, and it returns the details of transaction validation failures. The local state query protocol provides query access to the current ledger state, which contains a lot of interesting data that is not directly reflected on the chain itself.",
+        id: "term_56",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Helios",
+        descriptionAda: "---",
+        description: "A simple C-like smart contract language for Cardano. The Helios library is all you need to build 100% client-side DApps.  https://www.hyperion-bt.org/",
+        id: "term_57",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "OpShin",
+        descriptionAda: "---",
+        description: "Looking for getting started with building on Cardano? Opshin is a simple programming language for Smart Contracts based on python. It lets you compile, build and deploy Smart Contracts in minutes. OpShin provides you with additional tooling to get started right away.   https://github.com/OpShin",
+        id: "term_58",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Demeter",
+        descriptionAda: "---",
+        description: "A powerful Platform as a Service designed specifically for Cardano dApp development and deployment. With its extensive range of tools and integrated Cardano infrastructure components, including Cardano Node, DB-Sync, Ogmios, and more, Demeter offers developers a seamless experience. To initiate their way on Cardano with Demeter, users can visit the official website at demeter.run/starterkits, select a desired template, and simply begin coding.",
+        id: "term_59",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "plu-ts",
+        descriptionAda: "---",
+        description: "Create a Cardano dApp in Typescript in 5 mins using plu-ts.\n\nplu-ts runs in Javascript but implements its own type system; this way you can be sure about that what you are using is what you are expecting.\n\nAll the support of the Typescript ecosystem; minimal setup; ready to be used.\n\nhttps://pluts.harmoniclabs.tech/",
+        id: "term_60",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Gimbalabs Plutus Project-Based Learning (PBL)",
+        descriptionAda: "---",
+        description: "The goal of any Project-Based Learning (PBL) Course is to support people to become Contributors to real Projects. Plutus PBL is one example of a PBL course. Every Project-Based Learning course consists of a series of Modules. In this Plutus PBL course, there are 14 Modules.",
+        id: "term_61",
+        image: "/images/blog/term_61.png",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Kuber IDE",
+        descriptionAda: "---",
+        description: "KuberIDE is a browser based IDE for complete Plutus smart contracts development. No setup required. Write Plutus contracts, compile them and create transactions, all within the browser.",
+        id: "term_62",
+        image: "/images/blog/term_62.png",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Cardano DB Sync",
+        descriptionAda: "---",
+        description: "The purpose of Cardano DB Sync is to follow the Cardano chain and take information from the chain and an internally maintained copy of ledger state. Data is then extracted from the chain and inserted into a PostgreSQL database. SQL queries can then be written directly against the database schema or as queries embedded in any language with libraries for interacting with an SQL database. Examples of what someone would be able to do via an SQL query against a Cardano DB Sync instance fully synced to a specific network is: - Look up any block, transaction, address, stake pool etc on that network, usually by the hash that - - identifies that item or the index into another table. - Look up the balance of any stake address for any Shelley or later epoch. - Look up the amount of ADA delegated to each pool for any Shelley or later epoch. https://github.com/input-output-hk/cardano-db-sync",
+        id: "term_63",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    },
+    {
+        title: "Multi-chain Wallet",
+        descriptionAda: "Interfaces that allow users to use several addresses across different blockchains",
+        description: "Interfaces that allow users to use several addresses across different blockchains",
+        id: "term_64",
+        image: "/images/blog/term_6.jpg",
+        date: "23 Dec",
+        time: "3 min read",
+        subImages: [
+            "/images/blog/gallery_1.jpg",
+            "/images/blog/gallery_2.jpg"
+        ],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+    }, 
+];
+
+
+
+/***/ })
+
+};
+;

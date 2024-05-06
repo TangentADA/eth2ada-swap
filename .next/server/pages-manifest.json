@@ -1,0 +1,13 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/404": "pages/404.html",
+  "/addterm": "pages/addterm.html",
+  "/api/hello": "pages/api/hello.js",
+  "/dictionary": "pages/dictionary.html",
+  "/home/home": "pages/home/home.html",
+  "/": "pages/index.html",
+  "/single_term/[single_term]": "pages/single_term/[single_term].html",
+  "/tarms": "pages/tarms.html",
+  "/_document": "pages/_document.js"
+}

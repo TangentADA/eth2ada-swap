@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://eth2ada.com
+
+# Sitemaps
+Sitemap: https://eth2ada.com/sitemap.xml
