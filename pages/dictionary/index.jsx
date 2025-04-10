@@ -22,7 +22,7 @@ export default function Blog() {
        var dt =single_news_data.filter((val) => {
         //var par = query
         //var searchVal = window.location.href.split("query=")[1]
-        return val.title.toLowerCase().includes(queryPar.toLowerCase()) || val.description.toLowerCase().includes(queryPar.toLowerCase())  || val.descriptionAda.toLowerCase().includes(queryPar.toLowerCase())
+        return val.title.toLowerCase().includes(queryPar.toLowerCase()) || val.description.toLowerCase().includes(queryPar.toLowerCase())  || val.descriptionETH.toLowerCase().includes(queryPar.toLowerCase())
       })
       setdata(dt)
     }
