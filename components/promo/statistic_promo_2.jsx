@@ -34,7 +34,7 @@ const Statistic_promo_2 = () => {
             <span className="animate-gradient">{term.title}</span>
             </h2>
 							<p className="mb-8 text-lg leading-normal text-jacarta-200" style={{textTransform: 'none', textOverflow: 'ellipsis', overflow: 'hidden', '-webkit-line-clamp': '8', '-webkit-box-orient': 'vertical', display: '-webkit-box'}}>
-							{term.description == "---" ? term.descriptionAda : term.description}
+							{term.description == "---" ? term.descriptionETH : term.description}
 </p>
 							<p className="mb-12 text-jacarta-200">
 								{/* Every digital creation available through MakersPlace is an authentic and truly
