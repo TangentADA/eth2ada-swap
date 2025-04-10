@@ -23,7 +23,7 @@ const News_item = ({ data , classes ="grid grid-cols-1 gap-[1.875rem] sm:grid-co
         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
             className: classes,
             children: data.map((item)=>{
-                const { id , image , title , text , date , time , description , descriptionAda  } = item;
+                const { id , image , title , text , date , time , description , descriptionETH  } = item;
                 const link = image.split("/").slice(3).toString().replace(".jpg", "");
                 return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("article", {
                     children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -96,7 +96,7 @@ const News_item = ({ data , classes ="grid grid-cols-1 gap-[1.875rem] sm:grid-co
                                         },
                                         children: [
                                             "  ",
-                                            description != "---" ? description : descriptionAda
+                                            description != "---" ? description : descriptionETH
                                         ]
                                     }),
                                     /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
