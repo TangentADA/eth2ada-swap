@@ -24,7 +24,7 @@ const Single_post = () => {
 					{single_news_data
 						.filter((item) => item.id === pid)
 						.map((item) => {
-							const { id, image, title, text, description, descriptionAda, date, time, subImages, authorImage, authorName } =
+							const { id, image, title, text, description, descriptionETH, date, time, subImages, authorImage, authorName } =
 								item;
 							// console.log(image);
 							return (
@@ -88,7 +88,7 @@ const Single_post = () => {
 												</cite>
 											</blockquote>
 											<p className='text-normal-case'  style={{textTransform: 'none'}}>
-												{descriptionAda}
+												{descriptionETH}
 											</p>
 										</div>
 									</article>
