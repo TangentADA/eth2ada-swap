@@ -9,7 +9,7 @@ const News_item = ({
 		<>
 			<div className={classes}>
 				{data.map((item) => {
-					const { id, image, title, text, date, time, description, descriptionAda } = item;
+					const { id, image, title, text, date, time, description, descriptionETH } = item;
 					const link = image.split('/').slice(3).toString().replace('.jpg', '');
 					return (
 						<article key={id}>
@@ -59,7 +59,7 @@ const News_item = ({
 										'-webkit-box-orient': 'vertical',
 										display: '-webkit-box',
 										textTransform: 'none'
-									}}>  {description != "---" ? description : descriptionAda}</p>
+									}}>  {description != "---" ? description : descriptionETH}</p>
 
 									{/* <!-- Date / Time --> */}
 									<div className="text-jacarta-400 flex flex-wrap items-center space-x-2 text-sm">
