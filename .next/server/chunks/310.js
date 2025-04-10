@@ -941,7 +941,7 @@ const Statistic_promo_2 = ()=>{
                                         "-webkit-box-orient": "vertical",
                                         display: "-webkit-box"
                                     },
-                                    children: term.description == "---" ? term.descriptionAda : term.description
+                                    children: term.description == "---" ? term.descriptionETH : term.description
                                 }),
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
                                     className: "mb-12 text-jacarta-200"
