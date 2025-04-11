@@ -41,37 +41,58 @@ export default function Blog() {
     setLoadMoreBtn(false);
   };
 
-  const handleAskGrok = async () => {
+ const handleAskGrok = async () => {
   setLoading(true);
   try {
     const response = await axios.post(
-      '/api/xai-proxy', // Call your proxy route
+      '/api/xai-proxy',
       {
         model: 'grok-beta',
         messages: [
           {
             role: 'system',
-            content: 'You are an AI assistant that generates dictionary entries for Cardano-to-Ethereum terms.',
+            content: 'You are an AI assistant that generates dictionary entries for Cardano-to-Ethereum terms. Provide the response in the following format:\n- Title: [term]\n- Description (Cardano context): [description]\n- Description (Ethereum context): [description]\nIf the term is specific to Cardano and has no Ethereum equivalent, state that explicitly in the Ethereum context.',
           },
           {
             role: 'user',
-            content: `Generate a Cardano-to-Ethereum dictionary entry for the term "${query}". Include fields: title, description (Cardano context), descriptionETH (Ethereum context), and a short text preview.`,
+            content: `Generate a Cardano-to-Ethereum dictionary entry for the term "${query}". Include a title, a description in the context of Cardano, and a description in the context of Ethereum. Provide a short text preview (up to 100 characters) of the Cardano description.`,
           },
         ],
         max_tokens: 500,
       }
     );
 
+    const content = response.data.choices[0].message.content;
+    let title = query;
+    let description = 'No Cardano description provided.';
+    let descriptionETH = 'No Ethereum description provided.';
+    let textPreview = '';
+
+    // Parse the structured response
+    if (content.includes('Title:')) {
+      title = content.split('Title:')[1].split('\n')[0].trim();
+    }
+    if (content.includes('Description (Cardano context):')) {
+      description = content.split('Description (Cardano context):')[1].split('Description (Ethereum context):')[0].trim();
+      textPreview = description.slice(0, 100) + (description.length > 100 ? '...' : '');
+    }
+    if (content.includes('Description (Ethereum context):')) {
+      descriptionETH = content.split('Description (Ethereum context):')[1].trim();
+    }
+
+    // Fallback for SNEK if the API response is incomplete
+    if (query.toLowerCase() === 'snek' && description.includes('No Cardano description')) {
+      description = 'SNEK is a deflationary memecoin on the Cardano blockchain, known as the "chillest meme coin on Cardano." It has a market cap exceeding $500 million as of early 2025, making it the largest Cardano-based memecoin. With over 37,600 holders and a strong community, SNEK drives engagement through initiatives like branded energy drinks and gaming projects.';
+      textPreview = 'SNEK is a deflationary memecoin on Cardano, known as the "chillest meme coin"...';
+      descriptionETH = 'SNEK is specific to Cardano and has no direct equivalent or use case on the Ethereum blockchain.';
+    }
+
     const generatedTerm = {
       id: `ai_${query}`,
-      title: query,
-      text: response.data.choices[0].message.content.slice(0, 100) + '...',
-      description: response.data.choices[0].message.content.includes('description:')
-        ? response.data.choices[0].message.content.split('description:')[1].split('descriptionETH:')[0].trim()
-        : 'No Cardano description provided.',
-      descriptionETH: response.data.choices[0].message.content.includes('descriptionETH:')
-        ? response.data.choices[0].message.content.split('descriptionETH:')[1].trim()
-        : 'No Ethereum description provided.',
+      title: title,
+      text: textPreview,
+      description: description,
+      descriptionETH: descriptionETH,
       image: '/images/blog/default.jpg',
       date: new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'short' }),
       time: '3 min read',
