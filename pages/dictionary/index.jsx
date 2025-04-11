@@ -51,11 +51,11 @@ export default function Blog() {
         messages: [
           {
             role: 'system',
-            content: 'You are an AI assistant that generates dictionary entries for Cardano-to-Ethereum terms. Provide the response in the following format:\n- Title: [term]\n- Description (Cardano context): [description]\n- Description (Ethereum context): [description]\nIf the term is specific to Cardano and has no Ethereum equivalent, state that explicitly in the Ethereum context.',
+            content: 'You are an AI assistant that generates dictionary entries for Cardano-to-Ethereum terms. Provide the response in the following format:\nTitle: [term]\nDescription (Cardano context): [description]\nDescription (Ethereum context): [description]\nText Preview: [short preview up to 100 characters]\nIf the term is specific to Cardano and has no Ethereum equivalent, state that explicitly in the Ethereum context. Ensure all fields are populated with meaningful content.',
           },
           {
             role: 'user',
-            content: `Generate a Cardano-to-Ethereum dictionary entry for the term "${query}". Include a title, a description in the context of Cardano, and a description in the context of Ethereum. Provide a short text preview (up to 100 characters) of the Cardano description.`,
+            content: `Generate a Cardano-to-Ethereum dictionary entry for the term "${query}". Include a title, a description in the context of Cardano, a description in the context of Ethereum, and a short text preview (up to 100 characters) of the Cardano description.`,
           },
         ],
         max_tokens: 500,
@@ -64,8 +64,8 @@ export default function Blog() {
 
     const content = response.data.choices[0].message.content;
     let title = query;
-    let description = 'No Cardano description provided.';
-    let descriptionETH = 'No Ethereum description provided.';
+    let description = 'Failed to generate Cardano description.';
+    let descriptionETH = 'Failed to generate Ethereum description.';
     let textPreview = '';
 
     // Parse the structured response
@@ -74,17 +74,14 @@ export default function Blog() {
     }
     if (content.includes('Description (Cardano context):')) {
       description = content.split('Description (Cardano context):')[1].split('Description (Ethereum context):')[0].trim();
-      textPreview = description.slice(0, 100) + (description.length > 100 ? '...' : '');
     }
     if (content.includes('Description (Ethereum context):')) {
-      descriptionETH = content.split('Description (Ethereum context):')[1].trim();
+      descriptionETH = content.split('Description (Ethereum context):')[1].split('Text Preview:')[0].trim();
     }
-
-    // Fallback for SNEK if the API response is incomplete
-    if (query.toLowerCase() === 'snek' && description.includes('No Cardano description')) {
-      description = 'SNEK is a deflationary memecoin on the Cardano blockchain, known as the "chillest meme coin on Cardano." It has a market cap exceeding $500 million as of early 2025, making it the largest Cardano-based memecoin. With over 37,600 holders and a strong community, SNEK drives engagement through initiatives like branded energy drinks and gaming projects.';
-      textPreview = 'SNEK is a deflationary memecoin on Cardano, known as the "chillest meme coin"...';
-      descriptionETH = 'SNEK is specific to Cardano and has no direct equivalent or use case on the Ethereum blockchain.';
+    if (content.includes('Text Preview:')) {
+      textPreview = content.split('Text Preview:')[1].trim();
+    } else {
+      textPreview = description.slice(0, 100) + (description.length > 100 ? '...' : '');
     }
 
     const generatedTerm = {
@@ -93,7 +90,7 @@ export default function Blog() {
       text: textPreview,
       description: description,
       descriptionETH: descriptionETH,
-      image: '/images/blog/default.jpg',
+      image: '/images/blog/term_6.jpg', // Updated to use term_6.jpg
       date: new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'short' }),
       time: '3 min read',
       subImages: [],
