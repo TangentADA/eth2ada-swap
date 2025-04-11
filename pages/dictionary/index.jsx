@@ -42,43 +42,51 @@ export default function Blog() {
   };
 
   const handleAskGrok = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.post(
-        "https://api.x.ai/v1/generate", // Replace with actual xAI API endpoint
-        {
-          prompt: `Generate a Cardano-to-Ethereum dictionary entry for the term "${query}". Include fields: title, description (Cardano context), descriptionETH (Ethereum context), and a short text preview.`,
-          max_tokens: 500,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_XAI_API_KEY}`, // Use environment variable
-            "Content-Type": "application/json",
+  setLoading(true);
+  try {
+    const response = await axios.post(
+      '/api/xai-proxy', // Call your proxy route
+      {
+        model: 'grok-beta',
+        messages: [
+          {
+            role: 'system',
+            content: 'You are an AI assistant that generates dictionary entries for Cardano-to-Ethereum terms.',
           },
-        }
-      );
+          {
+            role: 'user',
+            content: `Generate a Cardano-to-Ethereum dictionary entry for the term "${query}". Include fields: title, description (Cardano context), descriptionETH (Ethereum context), and a short text preview.`,
+          },
+        ],
+        max_tokens: 500,
+      }
+    );
 
-      const generatedTerm = {
-        id: `ai_${query}`,
-        title: query,
-        text: response.data.text.slice(0, 100) + "...",
-        description: response.data.description,
-        descriptionETH: response.data.descriptionETH,
-        image: "/images/blog/default.jpg", // Use a default image
-        date: new Date().toLocaleDateString("en-US", { day: "numeric", month: "short" }),
-        time: "3 min read",
-        subImages: [],
-        authorImage: "/images/logo-circle.png",
-        authorName: "Grok AI (via Eth2Ada)",
-      };
-      setAiResult(generatedTerm);
-    } catch (error) {
-      console.error("Error calling xAI API:", error);
-      setAiResult({ error: "Failed to generate term. Please try again later." });
-    } finally {
-      setLoading(false);
-    }
-  };
+    const generatedTerm = {
+      id: `ai_${query}`,
+      title: query,
+      text: response.data.choices[0].message.content.slice(0, 100) + '...',
+      description: response.data.choices[0].message.content.includes('description:')
+        ? response.data.choices[0].message.content.split('description:')[1].split('descriptionETH:')[0].trim()
+        : 'No Cardano description provided.',
+      descriptionETH: response.data.choices[0].message.content.includes('descriptionETH:')
+        ? response.data.choices[0].message.content.split('descriptionETH:')[1].trim()
+        : 'No Ethereum description provided.',
+      image: '/images/blog/default.jpg',
+      date: new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'short' }),
+      time: '3 min read',
+      subImages: [],
+      authorImage: '/images/logo-circle.png',
+      authorName: 'Grok AI (via Eth2Ada)',
+    };
+    setAiResult(generatedTerm);
+  } catch (error) {
+    console.error('Error calling xAI API via proxy:', error);
+    setAiResult({ error: 'Failed to generate term. Please try again later.' });
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <>
