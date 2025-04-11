@@ -20,7 +20,7 @@ export default async function handler(req, res) {
       req.body,
       {
         headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_XAI_API_KEY}`,
+          Authorization: `Bearer ${process.env.XAI_API_KEY}`,
           'Content-Type': 'application/json',
         },
       }
