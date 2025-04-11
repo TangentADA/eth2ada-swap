@@ -6090,20 +6090,33 @@ ul.options {
   cursor: not-allowed;
 }
 
+.term-card.ai-generated h3 {
+  font-size: 2rem; /* 32px, increased from 1.5rem */
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .term-card.ai-generated h3 {
+    font-size: 2.25rem; /* 36px on sm screens and above */
+  }
+}
+
+/* Existing styles */
 .term-card.ai-generated h2 {
-  color: #1a223f; /* Matches text-jacarta-700 */
+  color: #1a223f;
 }
 
 .dark .term-card.ai-generated h2 {
-  color: #fff; /* Matches dark:text-white */
+  color: #fff;
 }
 
 .term-card.ai-generated p {
-  color: #1a223f; /* Matches text-jacarta-700 */
+  color: #1a223f;
 }
 
 .dark .term-card.ai-generated p {
-  color: #a3a8c3; /* Matches dark:text-jacarta-200 */
+  color: #a3a8c3;
 }
 
 .term-card.ai-generated {
