@@ -41,70 +41,70 @@ export default function Blog() {
     setLoadMoreBtn(false);
   };
 
- const handleAskGrok = async () => {
-  setLoading(true);
-  try {
-    const response = await axios.post(
-      '/api/xai-proxy',
-      {
-        model: 'grok-beta',
-        messages: [
-          {
-            role: 'system',
-            content: 'You are an AI assistant that generates dictionary entries for Cardano-to-Ethereum terms. Provide the response in the following format:\nTitle: [term]\nDescription (Cardano context): [description]\nDescription (Ethereum context): [description]\nText Preview: [short preview up to 100 characters]\nIf the term is specific to Cardano and has no Ethereum equivalent, state that explicitly in the Ethereum context. Ensure all fields are populated with meaningful content.',
-          },
-          {
-            role: 'user',
-            content: `Generate a Cardano-to-Ethereum dictionary entry for the term "${query}". Include a title, a description in the context of Cardano, a description in the context of Ethereum, and a short text preview (up to 100 characters) of the Cardano description.`,
-          },
-        ],
-        max_tokens: 500,
+  const handleAskGrok = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        '/api/xai-proxy',
+        {
+          model: 'grok-beta',
+          messages: [
+            {
+              role: 'system',
+              content: 'You are an AI assistant that generates dictionary entries for Cardano-to-Ethereum terms. Provide the response in the following format:\nTitle: [term]\nDescription (Cardano context): [description]\nDescription (Ethereum context): [description]\nText Preview: [short preview up to 100 characters]\nIf the term is specific to Cardano and has no Ethereum equivalent, state that explicitly in the Ethereum context. Ensure all fields are populated with meaningful content.',
+            },
+            {
+              role: 'user',
+              content: `Generate a Cardano-to-Ethereum dictionary entry for the term "${query}". Include a title, a description in the context of Cardano, a description in the context of Ethereum, and a short text preview (up to 100 characters) of the Cardano description.`,
+            },
+          ],
+          max_tokens: 500,
+        }
+      );
+
+      const content = response.data.choices[0].message.content;
+      let title = query;
+      let description = 'Failed to generate Cardano description.';
+      let descriptionETH = 'Failed to generate Ethereum description.';
+      let textPreview = '';
+
+      // Parse the structured response
+      if (content.includes('Title:')) {
+        title = content.split('Title:')[1].split('\n')[0].trim();
       }
-    );
+      if (content.includes('Description (Cardano context):')) {
+        description = content.split('Description (Cardano context):')[1].split('Description (Ethereum context):')[0].trim();
+      }
+      if (content.includes('Description (Ethereum context):')) {
+        descriptionETH = content.split('Description (Ethereum context):')[1].split('Text Preview:')[0].trim();
+      }
+      if (content.includes('Text Preview:')) {
+        textPreview = content.split('Text Preview:')[1].trim();
+      } else {
+        textPreview = description.slice(0, 100) + (description.length > 100 ? '...' : '');
+      }
 
-    const content = response.data.choices[0].message.content;
-    let title = query;
-    let description = 'Failed to generate Cardano description.';
-    let descriptionETH = 'Failed to generate Ethereum description.';
-    let textPreview = '';
-
-    // Parse the structured response
-    if (content.includes('Title:')) {
-      title = content.split('Title:')[1].split('\n')[0].trim();
+      const generatedTerm = {
+        id: `ai_${query}`,
+        title: title,
+        text: textPreview,
+        description: description,
+        descriptionETH: descriptionETH,
+        image: '/images/blog/term_6.jpg',
+        date: new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'short' }),
+        time: '3 min read',
+        subImages: [],
+        authorImage: '/images/logo-circle.png',
+        authorName: 'Grok AI (via Eth2Ada)',
+      };
+      setAiResult(generatedTerm);
+    } catch (error) {
+      console.error('Error calling xAI API via proxy:', error);
+      setAiResult({ error: 'Failed to generate term. Please try again later.' });
+    } finally {
+      setLoading(false);
     }
-    if (content.includes('Description (Cardano context):')) {
-      description = content.split('Description (Cardano context):')[1].split('Description (Ethereum context):')[0].trim();
-    }
-    if (content.includes('Description (Ethereum context):')) {
-      descriptionETH = content.split('Description (Ethereum context):')[1].split('Text Preview:')[0].trim();
-    }
-    if (content.includes('Text Preview:')) {
-      textPreview = content.split('Text Preview:')[1].trim();
-    } else {
-      textPreview = description.slice(0, 100) + (description.length > 100 ? '...' : '');
-    }
-
-    const generatedTerm = {
-      id: `ai_${query}`,
-      title: title,
-      text: textPreview,
-      description: description,
-      descriptionETH: descriptionETH,
-      image: '/images/blog/term_6.jpg', // Updated to use term_6.jpg
-      date: new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'short' }),
-      time: '3 min read',
-      subImages: [],
-      authorImage: '/images/logo-circle.png',
-      authorName: 'Grok AI (via Eth2Ada)',
-    };
-    setAiResult(generatedTerm);
-  } catch (error) {
-    console.error('Error calling xAI API via proxy:', error);
-    setAiResult({ error: 'Failed to generate term. Please try again later.' });
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   return (
     <>
@@ -200,11 +200,18 @@ export default function Blog() {
                         <h2>{aiResult.title} (AI-Generated)</h2>
                         <h3 className="animate-gradient">Cardano Definition</h3>
                         <p>{aiResult.description}</p>
-                          <h3 className="animate-gradient">Ethereum Definition</h3>
+                        <h3 className="animate-gradient">Ethereum Definition</h3>
                         <p>{aiResult.descriptionETH}</p>
                         <p>
                           <em>Generated by Grok AI</em>
                         </p>
+                      </div>
+                    )}
+                    {aiResult && aiResult.error && (
+                      <p className="error">{aiResult.error}</p>
+                    )}
+                  </div>
+                )}
               </div>
             )}
 
