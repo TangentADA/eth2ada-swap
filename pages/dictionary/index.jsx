@@ -1,45 +1,91 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import News_item from "../../components/blog/news_item";
 import { single_news_data } from "../../data/news_data";
 import Meta from "../../components/Meta";
-import { BrowserRouter as Router, Route, Switch, useLocation } from 'react-router-dom';
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import axios from "axios";
 
 export default function Blog() {
   const [loadMoreBtn, setLoadMoreBtn] = useState(true);
-  const [data, setdata] = useState(single_news_data.slice(0, 6));//window.location.href.includes("query=") ? news_data.filter(isInclude) : 
+  const [data, setData] = useState(single_news_data.slice(0, 6));
   const [query, setQuery] = useState("");
+  const [aiResult, setAiResult] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [askGrok, setAskGrok] = useState(false);
 
   const router = useRouter();
 
   useEffect(() => {
-    const searchParams = new URLSearchParams(router.asPath.split('?')[1]);
-    var queryPar = searchParams.get('query')
-    if(queryPar){
-       setQuery(queryPar);
-       var dt =single_news_data.filter((val) => {
-        //var par = query
-        //var searchVal = window.location.href.split("query=")[1]
-        return val.title.toLowerCase().includes(queryPar.toLowerCase()) || val.description.toLowerCase().includes(queryPar.toLowerCase())  || val.descriptionETH.toLowerCase().includes(queryPar.toLowerCase())
-      })
-      setdata(dt)
+    const searchParams = new URLSearchParams(router.asPath.split("?")[1]);
+    const queryPar = searchParams.get("query");
+    const askGrokPar = searchParams.get("askGrok") === "true";
+
+    setAskGrok(askGrokPar);
+
+    if (queryPar) {
+      setQuery(queryPar);
+      const filteredData = single_news_data.filter((val) => {
+        return (
+          val.title.toLowerCase().includes(queryPar.toLowerCase()) ||
+          val.description.toLowerCase().includes(queryPar.toLowerCase()) ||
+          val.descriptionETH.toLowerCase().includes(queryPar.toLowerCase())
+        );
+      });
+      setData(filteredData);
     }
   }, [router.asPath]);
 
-
   const handleLoadMore = () => {
-    setdata(single_news_data);
+    setData(single_news_data);
     setLoadMoreBtn(false);
+  };
+
+  const handleAskGrok = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        "https://api.x.ai/v1/generate", // Replace with actual xAI API endpoint
+        {
+          prompt: `Generate a Cardano-to-Ethereum dictionary entry for the term "${query}". Include fields: title, description (Cardano context), descriptionETH (Ethereum context), and a short text preview.`,
+          max_tokens: 500,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_XAI_API_KEY}`, // Use environment variable
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const generatedTerm = {
+        id: `ai_${query}`,
+        title: query,
+        text: response.data.text.slice(0, 100) + "...",
+        description: response.data.description,
+        descriptionETH: response.data.descriptionETH,
+        image: "/images/blog/default.jpg", // Use a default image
+        date: new Date().toLocaleDateString("en-US", { day: "numeric", month: "short" }),
+        time: "3 min read",
+        subImages: [],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Grok AI (via Eth2Ada)",
+      };
+      setAiResult(generatedTerm);
+    } catch (error) {
+      console.error("Error calling xAI API:", error);
+      setAiResult({ error: "Failed to generate term. Please try again later." });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <>
       <Meta title="Terms" />
       {/* <!-- Blog --> */}
-      <section className="relative  pt-[5.5rem] lg:pt-24">
-        <div className="py-16 ">
+      <section className="relative pt-[5.5rem] lg:pt-24">
+        <div className="py-16">
           <picture className="pointer-events-none absolute inset-0 -z-10 dark:hidden">
             <img
               src="/images/gradient_light.jpg"
@@ -49,11 +95,17 @@ export default function Blog() {
           </picture>
 
           <div className="container">
-          <h2 style={{display: query ? "block" : "none"}} className="mb-10 font-display text-5xl text-jacarta-700 dark:text-white text-center lg:text-6xl xl:text-5xl">
-            <span className="animate-gradient">Results</span>
+            <h2
+              style={{ display: query ? "block" : "none" }}
+              className="mb-10 font-display text-5xl text-jacarta-700 dark:text-white text-center lg:text-6xl xl:text-5xl"
+            >
+              <span className="animate-gradient">Results for "{query}"</span>
             </h2>
             {/* <!-- Featured Post --> */}
-            <article className="mb-[1.875rem] md:mb-16" style={{display: query ? "none" : "block"}}>
+            <article
+              className="mb-[1.875rem] md:mb-16"
+              style={{ display: query ? "none" : "block" }}
+            >
               <div className="rounded-2xl flex flex-col overflow-hidden transition-shadow hover:shadow-lg md:flex-row">
                 <figure className="group overflow-hidden md:w-1/2">
                   <Link href="#">
@@ -73,7 +125,7 @@ export default function Blog() {
                   <div className="mb-3 flex flex-wrap items-center space-x-1 text-xs">
                     <Link href="#">
                       <a className="dark:text-jacarta-200 text-jacarta-700 font-display hover:text-accent">
-                      Author
+                        Author
                       </a>
                     </Link>
                     <span className="dark:text-jacarta-400"></span>
@@ -87,9 +139,9 @@ export default function Blog() {
                       <a> Kuber IDE </a>
                     </Link>
                   </h2>
-                  <p className="dark:text-jacarta-200 mb-8" style={{textTransform: 'none'}}>
-                  Kuber IDE is a browser based IDE for complete Plutus smart contracts development. No setup required. Write Plutus contracts, compile them and create transactions, all within the browser.
-                                    </p>
+                  <p className="dark:text-jacarta-200 mb-8" style={{ textTransform: "none" }}>
+                    Kuber IDE is a browser based IDE for complete Plutus smart contracts development. No setup required. Write Plutus contracts, compile them and create transactions, all within the browser.
+                  </p>
 
                   {/* <!-- Date / Time --> */}
                   <div className="text-jacarta-400 flex flex-wrap items-center space-x-2 text-sm">
@@ -97,20 +149,50 @@ export default function Blog() {
                       {/* <time>5 Feb</time> */}
                     </span>
                     {/* <span>•</span> */}
-                   <span>3 min read</span>
+                    <span>3 min read</span>
                   </div>
                 </div>
               </div>
             </article>
 
-          { data.length > 0 ?  
-           <News_item data={data} />  : 
-          <span> No Data</span>
-          }
+            {data.length > 0 ? (
+              <News_item data={data} />
+            ) : (
+              <div className="no-data">
+                <span>No Data Found</span>
+                {(askGrok || aiResult) && (
+                  <div className="ask-grok-section">
+                    <button
+                      onClick={handleAskGrok}
+                      disabled={loading}
+                      className="ask-grok-btn"
+                    >
+                      {loading ? "Generating..." : "Ask Grok AI to generate this term"}
+                    </button>
+                    {aiResult && !aiResult.error && (
+                      <div className="term-card ai-generated">
+                        <h2>{aiResult.title} (AI-Generated)</h2>
+                        <p>{aiResult.description}</p>
+                        <p>
+                          <strong>Ethereum:</strong> {aiResult.descriptionETH}
+                        </p>
+                        <p>
+                          <em>Generated by Grok AI</em>
+                        </p>
+                        {aiResult.image && <img src={aiResult.image} alt={aiResult.title} />}
+                      </div>
+                    )}
+                    {aiResult && aiResult.error && (
+                      <p className="error">{aiResult.error}</p>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* <!-- Load More --> */}
             {loadMoreBtn && (
-              <div className="mt-10 text-center"  style={{display: query ? "none" : "block"}}>
+              <div className="mt-10 text-center" style={{ display: query ? "none" : "block" }}>
                 <button
                   onClick={handleLoadMore}
                   className="bg-accent shadow-accent-volume hover:bg-accent-dark inline-block rounded-full py-3 px-8 text-center font-semibold text-white transition-all"
@@ -125,5 +207,4 @@ export default function Blog() {
       {/* <!-- end blog --> */}
     </>
   );
-};
-
+}
