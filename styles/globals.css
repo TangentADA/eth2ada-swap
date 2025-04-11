@@ -6090,22 +6090,38 @@ ul.options {
   cursor: not-allowed;
 }
 
+.term-card.ai-generated h2 {
+  color: #1a223f; /* Matches text-jacarta-700 */
+}
+
+.dark .term-card.ai-generated h2 {
+  color: #fff; /* Matches dark:text-white */
+}
+
+.term-card.ai-generated p {
+  color: #1a223f; /* Matches text-jacarta-700 */
+}
+
+.dark .term-card.ai-generated p {
+  color: #a3a8c3; /* Matches dark:text-jacarta-200 */
+}
+
 .term-card.ai-generated {
-  background: #fff; /* Matches the Slot card */
-  border: 2px dashed #ff5733; /* Keep the dashed border to indicate AI-generated */
-  border-radius: 1.25rem; /* Matches the 20px border-radius of the Slot card */
-  padding: 10%; /* Matches the p-[10%] padding of the Slot card's body */
-  margin-top: 20px; /* Keep the margin for spacing */
-  transition: box-shadow 0.3s ease; /* Add transition for hover effect */
+  background: #fff;
+  border: 2px dashed #ff5733;
+  border-radius: 1.25rem;
+  padding: 10%;
+  margin-top: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.dark .term-card.ai-generated {
+  background: #1a223f;
+  border-color: #2a345c;
 }
 
 .term-card.ai-generated:hover {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Matches the hover:shadow-lg effect
-
-.term-card.ai-generated img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 10px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .error {
@@ -6113,4 +6129,3 @@ ul.options {
   font-style: italic;
   margin-top: 10px;
 }
-
