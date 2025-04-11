@@ -6052,4 +6052,16 @@ ul.options {
   .no-options {
 	color: white;
   }
-  
+  .no-options {
+  padding: 8px;
+  color: #ff5733; /* Match your site's color scheme */
+  font-style: italic;
+}
+.ask-grok-link {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.ask-grok-link:hover {
+  color: #0056b3;
+}
