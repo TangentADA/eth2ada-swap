@@ -3,47 +3,33 @@ import React from "react";
 
 const News_item = ({ data, classes }) => {
   return (
-    <div className={classes || "row mb-8"}> {/* Use the classes prop */}
+    <div className={classes || "row mb-8"}>
       {data.map((item) => {
-        const { id, title, text, image, date, time } = item;
+        const { id, title, text, date, time } = item;
         return (
-          <div key={id}> {/* Remove col-md-6 to let the parent grid handle layout */}
+          <div key={id}>
             <article className="mb-8">
-              <div className="news-box rounded-2xl flex flex-col overflow-hidden transition-shadow hover:shadow-lg md:flex-row">
-                <figure className="group overflow-hidden md:w-1/2">
+              <div className="dark:border-jacarta-600 dark:bg-jacarta-700 border-jacarta-100 rounded-2xl border bg-white p-6">
+                <div className="mb-3 flex flex-wrap items-center space-x-1 text-xs">
+                  <span className="text-accent inline-flex flex-wrap items-center space-x-1">
+                    <a href="#">Eth2Ada Academy</a>
+                  </span>
+                  <span className="dark:text-jacarta-400"></span>
+                </div>
+
+                <h2 className="font-display text-jacarta-700 dark:hover:text-accent hover:text-accent mb-4 text-xl dark:text-white sm:text-2xl">
                   <Link href={`/single_term/${id}`}>
-                    <a>
-                      <img
-                        src={image}
-                        alt="news"
-                        className="h-full w-full object-cover transition-transform duration-[1600ms] will-change-transform group-hover:scale-105"
-                      />
-                    </a>
+                    <a>{title}</a>
                   </Link>
-                </figure>
+                </h2>
+                <p className="dark:text-jacarta-200 mb-4 text-sm" style={{ textTransform: "none" }}>
+                  {text}
+                </p>
 
-                <div className="dark:border-jacarta-600 dark:bg-jacarta-700 border-jacarta-100 rounded-b-[1.25rem] border bg-white p-[10%] md:w-1/2 md:rounded-none md:rounded-r-[1.25rem]">
-                  <div className="mb-3 flex flex-wrap items-center space-x-1 text-xs">
-                    <span className="text-accent inline-flex flex-wrap items-center space-x-1">
-                      <a href="#">Eth2Ada Academy</a>
-                    </span>
-                    <span className="dark:text-jacarta-400"></span>
-                  </div>
-
-                  <h2 className="font-display text-jacarta-700 dark:hover:text-accent hover:text-accent mb-4 text-xl dark:text-white sm:text-3xl">
-                    <Link href={`/single_term/${id}`}>
-                      <a>{title}</a>
-                    </Link>
-                  </h2>
-                  <p className="dark:text-jacarta-200 mb-8" style={{ textTransform: "none" }}>
-                    {text}
-                  </p>
-
-                  <div className="flex flex-wrap items-center space-x-2 text-sm">
-                    <span className="text-jacarta-400">{date}</span>
-                    <span className="dark:text-jacarta-400"></span>
-                    <span className="text-jacarta-400">{time}</span>
-                  </div>
+                <div className="flex flex-wrap items-center space-x-2 text-sm">
+                  <span className="text-jacarta-400">{date}</span>
+                  <span className="dark:text-jacarta-400"></span>
+                  <span className="text-jacarta-400">{time}</span>
                 </div>
               </div>
             </article>
