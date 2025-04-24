@@ -174,8 +174,8 @@ const Single_post = () => {
                                         </h2>
 
                                         <News_item
-                                            data={single_news_data.slice(1, 5)} // Show 4 posts (indices 1, 2, 3, 4)
-                                            classes="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4 lg:gap-8"
+                                            data={single_news_data.slice(1, 5)} // Show 4 posts
+                                            classes="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10"
                                         />
                                     </div>
                                     {/* <!-- end related --> */}
