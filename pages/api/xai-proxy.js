@@ -15,12 +15,29 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Validate the API key
+    const apiKey = process.env.XAI_API_KEY;
+    if (!apiKey) {
+      return res.status(500).json({ error: 'XAI_API_KEY is not configured on the server' });
+    }
+
+    // Validate request body
+    const { model, messages, max_tokens } = req.body;
+    if (!model || !messages || !Array.isArray(messages)) {
+      return res.status(400).json({ error: 'Invalid request body: model and messages are required' });
+    }
+
+    // Forward the request to the xAI API
     const response = await axios.post(
       'https://api.x.ai/v1/chat/completions',
-      req.body,
+      {
+        model: model || 'grok',
+        messages: messages,
+        max_tokens: max_tokens || 500,
+      },
       {
         headers: {
-          Authorization: `Bearer ${process.env.XAI_API_KEY}`,
+          Authorization: `Bearer ${apiKey}`,
           'Content-Type': 'application/json',
         },
       }
@@ -32,10 +49,10 @@ export default async function handler(req, res) {
 
     res.status(200).json(response.data);
   } catch (error) {
-    console.error('Error proxying request to xAI API:', error);
+    console.error('Error proxying request to xAI API:', error.response?.data || error.message);
     res.status(error.response?.status || 500).json({
       error: 'Failed to proxy request to xAI API',
-      details: error.message,
+      details: error.response?.data?.error?.message || error.message,
     });
   }
 }
