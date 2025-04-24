@@ -31,20 +31,30 @@ export default function Header01() {
 
   const route = useRouter();
   /* -------------------------------------------------------------------------- */
-  /*                            daynamic navigations                            */
+  /*                            dynamic navigations                            */
   /* -------------------------------------------------------------------------- */
   const home = {
     id: 1,
-    name: "Home"
+    name: "Home",
   };
 
   const page = {
     id: 2,
     name: "Pages",
-    pages: [
-    ],
+    pages: [],
   };
 
+  // New "Support" navigation item for mobile menu
+  const support = {
+    id: 3,
+    name: "Support",
+    pages: [
+      { id: uuidv4(), name: "Resource Guide", path: "https://example.com/resource-guide", external: true },
+      { id: uuidv4(), name: "GitHub", path: "https://github.com/TangentADA/eth2ada-rc", external: true },
+      { id: uuidv4(), name: "YouTube", path: "https://youtube.com", external: true },
+      { id: uuidv4(), name: "Wiki", path: "https://example.com/wiki", external: true },
+    ],
+  };
 
   const mobileCollapse = (id) => {
     if (isCollapse === id) {
@@ -55,7 +65,7 @@ export default function Header01() {
 
   return (
     <>
-      {/* main desktop menu sart*/}
+      {/* main desktop menu start */}
       <header className="js-page-header fixed top-0 z-20 w-full backdrop-blur transition-colors">
         <div className="flex items-center px-6 py-6 xl:px-24 ">
           <Link className="shrink-0" href="/#top">
@@ -79,15 +89,12 @@ export default function Header01() {
               </div>
             </a>
           </Link>
-          {/* End  logo */}
-
+          {/* End logo */}
 
           <div className="js-mobile-menu dark:bg-jacarta-800 invisible fixed inset-0 z-10 ml-auto items-center bg-white opacity-0 lg:visible lg:relative lg:inset-auto lg:flex lg:bg-transparent lg:opacity-100 dark:lg:bg-transparent w-full">
-            <nav className="navbar w-full mt-24  lg:mt-0">
+            <nav className="navbar w-full mt-24 lg:mt-0">
               <ul className="flex flex-col justify-center lg:flex-row">
-                {/* home */}
-      
-
+                {/* Home */}
                 <li className="group">
                   <Link href="/#top">
                     <a>
@@ -106,41 +113,36 @@ export default function Header01() {
                   </Link>
                 </li>
 
-           
-
-                {/* explore */}
+                {/* Dictionary */}
                 <li className="js-nav-dropdown nav-item dropdown group relative">
-                  <button className="dropdown-toggle text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full">
                   <Link href="/dictionary">
-                    <span
-                      className={
-                        isChildrenPageActive(route.asPath, "/dictionary")
-                        ? "text-accent dark:text-accent"
-                          : "/dictionary"
-                      }
-                    >
-                      Dictionary
-                      
-                    </span>
-                    </Link>
-                    <i className="lg:hidden">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        width={24}
-                        height={24}
-                        className="h-4 w-4 dark:fill-white"
+                    <button className="dropdown-toggle text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full">
+                      <span
+                        className={
+                          isChildrenPageActive(route.asPath, "/dictionary")
+                            ? "text-accent dark:text-accent"
+                            : ""
+                        }
                       >
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path d="M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z" />
-                      </svg>
-                    </i>
-                  </button>
-
+                        Dictionary
+                      </span>
+                      <i className="lg:hidden">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          width={24}
+                          height={24}
+                          className="h-4 w-4 dark:fill-white"
+                        >
+                          <path fill="none" d="M0 0h24v24H0z" />
+                          <path d="M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z" />
+                        </svg>
+                      </i>
+                    </button>
+                  </Link>
                 </li>
 
-                {/* resource */}  
-
+                {/* Term of the Day */}
                 <li className="group">
                   <Link href="/#termofday">
                     <a>
@@ -149,7 +151,7 @@ export default function Header01() {
                           className={
                             isChildrenPageActive(route.asPath, "/#termofday")
                               ? "text-accent dark:text-accent"
-                              : "/#termofday"
+                              : ""
                           }
                         >
                           Term Of The Day
@@ -159,7 +161,7 @@ export default function Header01() {
                   </Link>
                 </li>
 
-                {/* create */}
+                {/* Add Term */}
                 <li className="group">
                   <Link href="/addterm">
                     <a>
@@ -177,6 +179,68 @@ export default function Header01() {
                     </a>
                   </Link>
                 </li>
+
+                {/* New "Ask xAI" Menu Item */}
+                <li className="group">
+                  <Link href="/terminal">
+                    <a>
+                      <button className="text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5">
+                        <span
+                          className={
+                            isChildrenPageActive(route.asPath, "/terminal")
+                              ? "text-accent dark:text-accent"
+                              : ""
+                          }
+                        >
+                          Ask xAI
+                        </span>
+                      </button>
+                    </a>
+                  </Link>
+                </li>
+
+                {/* New "Support" Dropdown Menu for Desktop */}
+                <li className="js-nav-dropdown nav-item dropdown group relative">
+                  <button className="dropdown-toggle text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full">
+                    <span
+                      className={
+                        isParentPageActive(support.pages, route.asPath)
+                          ? "text-accent dark:text-accent"
+                          : ""
+                      }
+                    >
+                      Support
+                    </span>
+                    <i className="lg:hidden">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width={24}
+                        height={24}
+                        className="h-4 w-4 dark:fill-white"
+                      >
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path d="M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z" />
+                      </svg>
+                    </i>
+                  </button>
+                  <ul className="dropdown-menu dark:bg-jacarta-800 group-hover:visible lg:invisible lg:absolute lg:block lg:translate-y-4 lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 left-0 top-[85%] z-10 min-w-[200px] gap-x-4 whitespace-nowrap rounded-xl bg-white transition-all will-change-transform lg:py-4 lg:px-2 lg:shadow-2xl hidden">
+                    {support.pages.map((item) => (
+                      <li key={item.id}>
+                        <a
+                          href={item.path}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                        >
+                          <span className="font-display text-jacarta-700 text-sm dark:text-white">
+                            {item.name}
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
               </ul>
             </nav>
             {/* End menu for desktop */}
@@ -185,20 +249,23 @@ export default function Header01() {
               {/* <WalletButton /> */}
               {/* End metamask Wallet */}
 
-              <button  onClick={() => dispath(profileModalShow())} className="dropdown-toggle border-jacarta-100 hover:bg-accent focus:bg-accent group dark:hover:bg-accent ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width={24}
-                    height={24}
-                    className="fill-jacarta-700 h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:fill-white"
-                  >
-                    <path fill="none" d="M0 0h24v24H0z" />
-                    <path d="M11 14.062V20h2v-5.938c3.946.492 7 3.858 7 7.938H4a8.001 8.001 0 0 1 7-7.938zM12 13c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6z" />
-                  </svg>
-                </button>
+              <button
+                onClick={() => dispath(profileModalShow())}
+                className="dropdown-toggle border-jacarta-100 hover:bg-accent focus:bg-accent group dark:hover:bg-accent ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width={24}
+                  height={24}
+                  className="fill-jacarta-700 h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:fill-white"
+                >
+                  <path fill="none" d="M0 0h24v24H0z" />
+                  <path d="M11 14.062V20h2v-5.938c3.946.492 7 3.858 7 7.938H4a8.001 8.001 0 0 1 7-7.938zM12 13c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6z" />
+                </svg>
+              </button>
 
-              <div className="js-nav-dropdown group-dropdown relative" style={{display: 'none'}}>
+              <div className="js-nav-dropdown group-dropdown relative" style={{ display: "none" }}>
                 <button className="dropdown-toggle border-jacarta-100 hover:bg-accent focus:bg-accent group dark:hover:bg-accent ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -212,9 +279,7 @@ export default function Header01() {
                   </svg>
                 </button>
                 <div className="dropdown-menu dark:bg-jacarta-800 group-dropdown-hover:opacity-100 group-dropdown-hover:visible !-right-4 !top-[85%] !left-auto z-10 min-w-[14rem] whitespace-nowrap rounded-xl bg-white transition-all will-change-transform before:absolute before:-top-3 before:h-3 before:w-full lg:absolute lg:grid lg:!translate-y-4 lg:py-4 lg:px-2 lg:shadow-2xl hidden lg:invisible lg:opacity-0">
-
-                  <Link  href="#">
-                  {/* //  href="/user/avatar_6"> */}
+                  <Link href="#">
                     <a className="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center space-x-2 rounded-xl px-5 py-2 transition-colors">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -232,7 +297,6 @@ export default function Header01() {
                     </a>
                   </Link>
                   <Link href="#">
-                  {/* href="/profile/user_avatar"> */}
                     <a className="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center space-x-2 rounded-xl px-5 py-2 transition-colors">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -272,10 +336,9 @@ export default function Header01() {
             </div>
             {/* End header right content (metamask and other) for desktop */}
           </div>
-          {/* header menu conent end for desktop */}
+          {/* header menu content end for desktop */}
 
           <div className="ml-auto flex lg:hidden">
-    
             <DarkMode />
             <button
               className="js-mobile-toggle border-jacarta-100 hover:bg-accent dark:hover:bg-accent focus:bg-accent group ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
@@ -294,13 +357,13 @@ export default function Header01() {
               </svg>
             </button>
           </div>
-          {/* End header right content  for mobile */}
+          {/* End header right content for mobile */}
         </div>
         {/* End flex item */}
       </header>
       {/* main desktop menu end */}
 
-      {/* start mobile menu and it's other materials  */}
+      {/* start mobile menu and its other materials */}
       <div
         className={`lg:hidden js-mobile-menu dark:bg-jacarta-800 invisible fixed inset-0 z-20 ml-auto items-center bg-white opacity-0 lg:visible lg:relative lg:inset-auto lg:bg-transparent lg:opacity-100 dark:lg:bg-transparent ${
           toggle ? "nav-menu--is-open" : "hidden"
@@ -343,9 +406,6 @@ export default function Header01() {
           </button>
         </div>
         {/* mobile menu top header content */}
-
-
-        {/* End search form mobile menu  */}
 
         <nav className="navbar w-full">
           <ul className="flex flex-col lg:flex-row">
@@ -462,7 +522,7 @@ export default function Header01() {
                 ))}
               </ul>
             </li>
-        
+
             <li className="group" onClick={() => setToggle(false)}>
               <Link href="/#top">
                 <a>
@@ -531,13 +591,80 @@ export default function Header01() {
                 </a>
               </Link>
             </li>
+
+            {/* New "Ask xAI" Menu Item for Mobile */}
+            <li className="group" onClick={() => setToggle(false)}>
+              <Link href="/terminal">
+                <a>
+                  <button className="text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5">
+                    <span
+                      className={
+                        isChildrenPageActive("/terminal", route.asPath)
+                          ? "text-accent dark:text-accent"
+                          : ""
+                      }
+                    >
+                      Ask xAI
+                    </span>
+                  </button>
+                </a>
+              </Link>
+            </li>
+
+            {/* New "Support" Menu Item for Mobile */}
+            <li className="js-nav-dropdown group relative">
+              <button
+                onClick={() => mobileCollapse(support.id)}
+                className="dropdown-toggle text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full"
+              >
+                <span
+                  className={
+                    isParentPageActive(support.pages, route.asPath)
+                      ? "text-accent dark:text-accent"
+                      : ""
+                  }
+                >
+                  {support.name}
+                </span>
+                <i className="lg:hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width={24}
+                    height={24}
+                    className="h-4 w-4 dark:fill-white"
+                  >
+                    <path fill="none" d="M0 0h24v24H0z" />
+                    <path d="M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z" />
+                  </svg>
+                </i>
+              </button>
+              <ul
+                className={`dropdown-menu dark:bg-jacarta-800 left-0 top-[85%] z-10 min-w-[200px] gap-x-4 whitespace-nowrap rounded-xl bg-white transition-all will-change-transform group-hover:visible group-hover:opacity-100 lg:invisible lg:absolute lg:grid lg:translate-y-4 lg:py-4 lg:px-2 lg:opacity-0 lg:shadow-2xl lg:group-hover:translate-y-2 relative ${
+                  isCollapse === support.id ? "block" : "hidden"
+                }`}
+              >
+                {support.pages.map((item) => (
+                  <li key={item.id} onClick={() => setToggle(false)}>
+                    <a
+                      href={item.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                    >
+                      <span className="font-display text-jacarta-700 text-sm dark:text-white">
+                        {item.name}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
           </ul>
         </nav>
-        {/* End navbar mobile menu  */}
-
-        {/* mt-10 w-full lg:hidden */}
+        {/* End navbar mobile menu */}
       </div>
-      {/* End mobile menu and it's other materials */}
+      {/* End mobile menu and its other materials */}
     </>
   );
 }
