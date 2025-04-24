@@ -1,13 +1,13 @@
 import Link from "next/link";
 import React from "react";
 
-const News_item = ({ data }) => {
+const News_item = ({ data, classes }) => {
   return (
-    <div className="row mb-8">
+    <div className={classes || "row mb-8"}> {/* Use the classes prop */}
       {data.map((item) => {
         const { id, title, text, image, date, time } = item;
         return (
-          <div key={id} className="col-md-6">
+          <div key={id}> {/* Remove col-md-6 to let the parent grid handle layout */}
             <article className="mb-8">
               <div className="news-box rounded-2xl flex flex-col overflow-hidden transition-shadow hover:shadow-lg md:flex-row">
                 <figure className="group overflow-hidden md:w-1/2">
