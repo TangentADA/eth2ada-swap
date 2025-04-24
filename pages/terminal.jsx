@@ -25,7 +25,7 @@ export default function Terminal() {
     try {
       // Call the xAI API via proxy
       const response = await axios.post("/api/xai-proxy", {
-        model: "grok",
+        model: "grok-beta", // Updated to grok-beta to match working dictionary/index.jsx
         messages: [
           {
             role: "system",
