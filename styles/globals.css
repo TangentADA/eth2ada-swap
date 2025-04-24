@@ -6052,4 +6052,93 @@ ul.options {
   .no-options {
 	color: white;
   }
-  
+  .no-options {
+  padding: 8px;
+  color: #ff5733; /* Match your site's color scheme */
+  font-style: italic;
+}
+.ask-grok-link {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.ask-grok-link:hover {
+  color: #0056b3;
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.ask-grok-section {
+  margin-top: 20px;
+}
+
+.ask-grok-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ask-grok-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.term-card.ai-generated h3 {
+  font-size: 2rem; /* 32px, increased from 1.5rem */
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .term-card.ai-generated h3 {
+    font-size: 2.25rem; /* 36px on sm screens and above */
+  }
+}
+
+/* Existing styles */
+.term-card.ai-generated h2 {
+  color: #1a223f;
+}
+
+.dark .term-card.ai-generated h2 {
+  color: #fff;
+}
+
+.term-card.ai-generated p {
+  color: #1a223f;
+}
+
+.dark .term-card.ai-generated p {
+  color: #a3a8c3;
+}
+
+.term-card.ai-generated {
+  background: #fff;
+  border: 2px dashed #ff5733;
+  border-radius: 1.25rem;
+  padding: 10%;
+  margin-top: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.dark .term-card.ai-generated {
+  background: #1a223f;
+  border-color: #2a345c;
+}
+
+.term-card.ai-generated:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.error {
+  color: red;
+  font-style: italic;
+  margin-top: 10px;
+}
