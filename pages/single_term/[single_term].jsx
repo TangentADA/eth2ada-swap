@@ -77,16 +77,18 @@ const Single_post = () => {
                                                 {descriptionETH}
                                             </p>
 
-                                            {/* Add the "Edit via GitHub" button */}
-                                            <a
-                                                href="https://github.com/TangentADA/eth2ada-rc/blob/main/README.md"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="ask-grok-btn"
-                                                style={{ display: 'inline-block', marginTop: '20px' }}
-                                            >
-                                                Edit via GitHub
-                                            </a>
+                                            {/* Add the "Edit via GitHub" button with alignment */}
+                                            <div className="text-center mt-5">
+                                                <a
+                                                    href="https://github.com/TangentADA/eth2ada-rc/blob/main/README.md"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="ask-grok-btn"
+                                                    style={{ display: 'inline-block' }}
+                                                >
+                                                    Edit via GitHub
+                                                </a>
+                                            </div>
                                         </div>
                                     </article>
 
