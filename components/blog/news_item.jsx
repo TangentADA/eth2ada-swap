@@ -1,82 +1,68 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import React from "react";
 
-const News_item = ({
-	data,
-	classes = 'grid grid-cols-1 gap-[1.875rem] sm:grid-cols-2 md:grid-cols-3',
-}) => {
-	return (
-		<>
-			<div className={classes}>
-				{data.map((item) => {
-					const { id, image, title, text, date, time, description, descriptionETH } = item;
-					const link = image.split('/').slice(3).toString().replace('.jpg', '');
-					return (
-						<article key={id}>
-							<div className="rounded-2xl overflow-hidden transition-shadow hover:shadow-lg">
-								<figure className="group overflow-hidden ">
-									<Link href={`/single_term/${id}`}>
-										<a>
-											<img
-												src={image}
-												alt={title}
-												className="h-full w-full object-cover transition-transform duration-[1600ms] will-change-transform group-hover:scale-105 "
-											/>
-										</a>
-									</Link>
-								</figure>
+const News_item = ({ data }) => {
+  return (
+    <div className="row mb-8">
+      {data.map((item) => {
+        const { id, title, text, image, date, time } = item;
+        return (
+          <div key={id} className="col-md-6">
+            <article className="mb-8">
+              <div className="news-box rounded-2xl flex flex-col overflow-hidden transition-shadow hover:shadow-lg md:flex-row">
+                <figure className="group overflow-hidden md:w-1/2">
+                  <Link href={`/single_term/${id}`}>
+                    <a>
+                      <img
+                        src={image}
+                        alt="news"
+                        className="h-full w-full object-cover transition-transform duration-[1600ms] will-change-transform group-hover:scale-105"
+                      />
+                    </a>
+                  </Link>
+                </figure>
 
-								{/* <!-- Body --> */}
-								<div className="dark:border-jacarta-600 dark:bg-jacarta-700 border-jacarta-100 rounded-b-[1.25rem] border border-t-0 bg-white p-[10%]">
-									{/* <!-- Meta --> */}
-									<div className="mb-3 flex flex-wrap items-center space-x-1 text-xs">
-										<a
-											href="#"
-											className="dark:text-jacarta-200 text-jacarta-700 font-display hover:text-accent"
-										>
-											Author
-										</a>
-										<span className="dark:text-jacarta-400"></span>
-										<span className="text-accent inline-flex flex-wrap items-center space-x-1">
-											<a href="#">Eth2Ada Academy</a>
-										</span>
-									</div>
+                <div className="dark:border-jacarta-600 dark:bg-jacarta-700 border-jacarta-100 rounded-b-[1.25rem] border bg-white p-[10%] md:w-1/2 md:rounded-none md:rounded-r-[1.25rem]">
+                  <div className="mb-3 flex flex-wrap items-center space-x-1 text-xs">
+                    <span className="text-accent inline-flex flex-wrap items-center space-x-1">
+                      <a href="#">Eth2Ada Academy</a>
+                    </span>
+                    <span className="dark:text-jacarta-400"></span>
+                  </div>
 
-									<h2 className="font-display text-jacarta-700 dark:hover:text-accent hover:text-accent mb-4 text-xl dark:text-white" style={{
-										textOverflow: 'ellipsis',
-										whiteSpace: 'nowrap',
-										overflow: 'hidden'
-									}}>
-										<Link href={`/single_term/${id}`}>
-											<a> {title} </a>
-										</Link>
-									</h2>
-									<p className="dark:text-jacarta-200 mb-8" style={{
-										textOverflow: 'ellipsis',
-										// whiteSpace: 'pre-wrap',
-										overflow: 'hidden',
-										'-webkit-line-clamp': '3',
-										'-webkit-box-orient': 'vertical',
-										display: '-webkit-box',
-										textTransform: 'none'
-									}}>  {description != "---" ? description : descriptionETH}</p>
+                  <h2 className="font-display text-jacarta-700 dark:hover:text-accent hover:text-accent mb-4 text-xl dark:text-white sm:text-3xl">
+                    <Link href={`/single_term/${id}`}>
+                      <a>{title}</a>
+                    </Link>
+                  </h2>
+                  <p className="dark:text-jacarta-200 mb-8" style={{ textTransform: "none" }}>
+                    {text}
+                  </p>
 
-									{/* <!-- Date / Time --> */}
-									<div className="text-jacarta-400 flex flex-wrap items-center space-x-2 text-sm">
-										{/* <span>
-											<time>{date}</time>
-										</span>
-										<span>•</span> */}
-										<span>•</span><span>{time}</span>
-									</div>
-								</div>
-							</div>
-						</article>
-					);
-				})}
-			</div>
-		</>
-	);
+                  <div className="flex flex-wrap items-center space-x-2 text-sm">
+                    <span className="text-jacarta-400">{date}</span>
+                    <span className="dark:text-jacarta-400"></span>
+                    <span className="text-jacarta-400">{time}</span>
+                  </div>
+
+                  {/* Add the "Edit via GitHub" button */}
+                  <a
+                    href="https://github.com/TangentADA/eth2ada-AI/blob/main/README.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ask-grok-btn"
+                    style={{ display: 'inline-block', marginTop: '10px' }}
+                  >
+                    Edit via GitHub
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default News_item;
