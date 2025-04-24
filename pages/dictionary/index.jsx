@@ -34,10 +34,8 @@ export default function Blog() {
       });
       setData(filteredData);
 
-      // Automatically call Grok if no results are found
-      if (filteredData.length === 0) {
-        handleAskGrok();
-      }
+      // Reset AI result when a new query is made
+      setAiResult(null);
     }
   }, [router.asPath]);
 
@@ -192,10 +190,15 @@ export default function Blog() {
               <div className="no-data">
                 <span>No Data Found</span>
                 <div className="ask-grok-section">
-                  {loading && (
-                    <div className="text-center">
-                      <span className="text-jacarta-700 dark:text-white">Generating term with Grok AI...</span>
-                    </div>
+                  {/* Show the "Generate Term Using xAI" button if no AI result or an error occurred */}
+                  {(!aiResult || aiResult.error) && (
+                    <button
+                      onClick={handleAskGrok}
+                      disabled={loading}
+                      className="ask-grok-btn"
+                    >
+                      {loading ? "Generating..." : "Generate Term Using xAI"}
+                    </button>
                   )}
                   {aiResult && !aiResult.error && (
                     <div className="term-card ai-generated">
