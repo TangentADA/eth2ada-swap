@@ -47,7 +47,7 @@ export default function Blog() {
       const response = await axios.post(
         '/api/xai-proxy',
         {
-          model: 'grok',
+          model: 'grok-beta', // Updated to grok-beta to match old working version
           messages: [
             {
               role: 'system',
