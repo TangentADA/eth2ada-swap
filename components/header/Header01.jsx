@@ -49,7 +49,7 @@ export default function Header01() {
     id: 3,
     name: "Support",
     pages: [
-      { id: uuidv4(), name: "Resource Guide", path: "https://example.com/resource-guide", external: true },
+      { id: uuidv4(), name: "Educational Materials", path: "https://tinyurl.com/33yxvtjn", external: true },
       { id: uuidv4(), name: "GitHub", path: "https://github.com/TangentADA/eth2ada-rc", external: true },
       { id: uuidv4(), name: "YouTube", path: "https://youtube.com", external: true },
       { id: uuidv4(), name: "Wiki", path: "https://example.com/wiki", external: true },
