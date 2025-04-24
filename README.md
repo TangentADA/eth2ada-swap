@@ -57,12 +57,12 @@ We welcome input from anyone with a GitHub account. Let’s educate and connect 
 
 ```bash
 git add data/news_data.js
-git commit -m "Add new term: DApp"
+git commit -m "Add new term: DApp".
 
 6. **Push to GitHub**
 
 ```bash
-git push origin add-term-<term-name>
+git push origin add-term-<term-name>.
 
 7. **Submit a Pull Request** 
 
