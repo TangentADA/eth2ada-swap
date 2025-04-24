@@ -44,17 +44,6 @@ const News_item = ({ data }) => {
                     <span className="dark:text-jacarta-400"></span>
                     <span className="text-jacarta-400">{time}</span>
                   </div>
-
-                  {/* Add the "Edit via GitHub" button */}
-                  <a
-                    href="https://github.com/TangentADA/eth2ada-AI/blob/main/README.md"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ask-grok-btn"
-                    style={{ display: 'inline-block', marginTop: '10px' }}
-                  >
-                    Edit via GitHub
-                  </a>
                 </div>
               </div>
             </article>
