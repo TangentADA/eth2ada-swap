@@ -1,5 +1,7 @@
 # Cardano-to-Ethereum Dictionary Registry
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Welcome to the open-source registry for the **Cardano-to-Ethereum Dictionary**, available at [https://eth2ada.com](https://eth2ada.com). This project is a community-driven initiative to define and compare blockchain terms across the Cardano and Ethereum ecosystems—highlighting their similarities, differences, and unique features in a clear and accessible way.
 
 ---
