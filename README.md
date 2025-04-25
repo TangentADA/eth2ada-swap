@@ -22,8 +22,6 @@ We welcome input from anyone with a GitHub account. Let’s educate and connect 
 
 ### ✅ Adding a New Term
 
-### Adding a New Term
-
 1. **Fork the Repository**  
    Click “Fork” on [github.com/TangentADA/eth2ada-rc](https://github.com/TangentADA/eth2ada-rc).
 
@@ -78,7 +76,8 @@ Push to GitHub
 From your fork, create a PR comparing your branch to the main repo’s main branch. Include a clear title and description.
 
 
-### Editing an Existing Term
+## ✏️ Editing an Existing Term
+To edit a term (e.g., fix a typo or add detail):
 
 Fork and clone the repo as above.
 Create a branch:
@@ -90,7 +89,7 @@ Create a branch:
 Update the relevant object in data/news_data.js.
 Commit, push, and submit a PR as described.
 
-### Term Structure
+### 🧠 Dictionary Term Structure
 
 Each term in data/news_data.js must follow this schema:
 
@@ -116,22 +115,24 @@ Add or edit one term per PR.
 Use unique term_X IDs.
 Ensure valid JavaScript (no trailing commas, typos).
 
-## Website
+## 🌐 Website
 Content is rendered at eth2ada.com from data/news_data.js. Merged PRs go live after the next deployment.
 
-## Contributor Rewards: Airdrop
+## 🎁 Contributor Rewards: Airdrop
 Contributors are eligible for an upcoming token airdrop!
 Qualification: Have a term or edit merged into the main branch.
 Tracking: Via GitHub usernames.
 Rewards: Scale with contribution frequency.
 Updates: Follow eth2ada.com or the repo.
 
-## Tips
+## 💡 Tips
 Write beginner-friendly, neutral explanations.
 Avoid jargon where possible.
 Verify image paths in /images/blog/ or use external hosting.
 Need help? Open an issue or contact us via GitHub.
-Let’s build the ultimate Cardano-to-Ethereum dictionary together!
+Let’s build the ultimate Cardano-to-Ethereum dictionary together! 🚀
 
-## Experimental Build 
+## Experimental Build for builders 
 https://github.com/TangentADA/eth2ada-AI
+
+## Documentation
