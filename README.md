@@ -1,16 +1,26 @@
 # Cardano-to-Ethereum Dictionary Registry
 
-An open-source, community-driven dictionary comparing blockchain terms across **Cardano** and **Ethereum**. Explore the project at [eth2ada.com](https://eth2ada.com) and contribute via [github.com/TangentADA/eth2ada-rc](https://github.com/TangentADA/eth2ada-rc).
+Welcome to the open-source registry for the **Cardano-to-Ethereum Dictionary**, available at [https://eth2ada.com](https://eth2ada.com). This project is a community-driven initiative to define and compare blockchain terms across the Cardano and Ethereum ecosystems—highlighting their similarities, differences, and unique features in a clear and accessible way.
 
-## Overview
+---
 
-This dictionary bridges Cardano and Ethereum ecosystems by defining and comparing key concepts like consensus mechanisms, transaction models, and smart contract paradigms. It’s a resource for developers, researchers, and enthusiasts to understand similarities, differences, and unique features.
+## 📚 Background
 
-- **Data**: Stored as a JavaScript array of objects in `data/news_data.js`.
-- **Frontend**: Publicly rendered at [eth2ada.com](https://eth2ada.com).
-- **Contributions**: Open to anyone with a GitHub account via Pull Requests (PRs).
+This dictionary serves as a dynamic resource to help developers, researchers, and blockchain enthusiasts better understand key concepts across Cardano and Ethereum. Topics include:
 
-## Contribution Workflow
+- Consensus mechanisms  
+- Transaction models  
+- Smart contract paradigms  
+
+The dictionary is stored as a JavaScript array of objects inside `data/news_data.js`. A public frontend at [eth2ada.com](https://eth2ada.com) renders this data, and the GitHub repo at [github.com/TangentADA/eth2ada-rc](https://github.com/TangentADA/eth2ada-rc) is open for contributions via Pull Requests (PRs).
+
+We welcome input from anyone with a GitHub account. Let’s educate and connect both communities together!
+
+---
+
+## ⚙️ Contribution Workflow
+
+### ✅ Adding a New Term
 
 ### Adding a New Term
 
