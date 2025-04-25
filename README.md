@@ -23,131 +23,123 @@ We welcome input from anyone with a GitHub account. Let’s educate and connect 
 ### ✅ Adding a New Term
 
 1. **Fork the Repository**  
-   Click “Fork” on [https://github.com/TangentADA/eth2ada-rc](https://github.com/TangentADA/eth2ada-rc)
+   Click “Fork” on [github.com/TangentADA/eth2ada-rc](https://github.com/TangentADA/eth2ada-rc).
 
-2. **Clone Your Fork**
+2. **Clone Your Fork**  
    ```bash
    git clone https://github.com/YOUR_USERNAME/eth2ada-rc.git
    cd eth2ada-rc
+   
+3. **Create a Branch**
+   ```bash
+   git checkout -b add-term-<term-name>       
 
-3. **Create a New Branch**
+Replace <term-name> with a short identifier (e.g., utxo).
+
+4. **Edit the Dictionary**
+   
+Append a new object to data/news_data.js with a comma and this structure:  
+
+   ```javascript
+   {
+        id: "term_7",
+        title: "DApp",
+        text: "A decentralized application running on a blockchain...",
+        description: "On Cardano, DApps use Plutus scripts for decentralized logic, validated by the network.",
+        descriptionETH: "On Ethereum, DApps rely on smart contracts deployed on the blockchain.",
+        image: "/images/blog/term_7.jpg",
+        date: "10 Apr",
+        time: "2 min read",
+        subImages: ["/images/blog/gallery_1.jpg"],
+        authorImage: "/images/logo-circle.png",
+        authorName: "Eth2Ada Academy"
+   }
+```
+
+5. **Commit the Changes**
 
    ```bash
-   git checkout -b add-term-<term-name>
-   Replace <term-name> with a short identifier (e.g., add-term-utxo).
+   git add data/news_data.js
+   git commit -m "Add new term: DApp"
+```
 
-4. **Edit the Dictionary File** Open data/news_data.js. Append a new object to the single_news_data array following this structure:
+```
 
-   javascript
-{
-  id: "term_7",
-  text: "A decentralized application running on a blockchain...",
-  title: "DApp",
-  description: "On Cardano, a DApp leverages Plutus scripts to execute decentralized logic, validated by the network.",
-  descriptionETH: "On Ethereum, a DApp uses smart contracts deployed on the blockchain to perform actions.",
-  image: "/images/blog/term_7.jpg",
-  date: "10 Apr",
-  time: "2 min read",
-  subImages: ["/images/blog/gallery_1.jpg"],
-  authorImage: "/images/logo-circle.png",
-  authorName: "Eth2Ada Academy"
-}
 
-5. **Commit Your Changes**
+Push to GitHub  
 
-``bash
-git add data/news_data.js
-git commit -m "Add new term: DApp".
+  ```bash
+   git push origin add-term-<term-name>
+```
 
-6. **Push to GitHub**
+6. **Submit a Pull Request**
 
-`bash
-git push origin add-term-<term-name>.
+From your fork, create a PR comparing your branch to the main repo’s main branch. Include a clear title and description.
 
-7. **Submit a Pull Request** 
-
-Go to your fork on GitHub
-Click Pull Requests > New Pull Request
-Select your branch and compare with the main branch of the original repo
-Write a clear title and description, then submit
 
 ## ✏️ Editing an Existing Term
 To edit a term (e.g., fix a typo or add detail):
 
-1. Fork and clone the repo as above
+Fork and clone the repo as above.
+Create a branch:
 
-2. Create a branch:
+```bash
+   git checkout -b edit-term-<term-name>
+```
 
-bash
-git checkout -b edit-term-<term-name>
-
-3. Open data/news_data.js
-Locate the relevant object and update its fields (description, descriptionETH, text, etc.)
-
-4. Commit your changes:
-
-bash
-git add data/news_data.js
-git commit -m "Update term: <term-name>"
-
-5. Push and open a PR as described above
+Update the relevant object in data/news_data.js.
+Commit, push, and submit a PR as described.
 
 ### 🧠 Dictionary Term Structure
-Each term in data/news_data.js must follow this object schema:
+
+Each term in data/news_data.js must follow this schema:
+
+| Field         | Required | Description                                           |
+|---------------|----------|-------------------------------------------------------|
+| `id`          | Yes      | Unique ID (e.g., `term_7`)                            |
+| `title`       | Yes      | Term name (e.g., `UTXO`)                              |
+| `text`        | Yes      | Short summary                                         |
+| `description` | Yes      | Cardano-specific explanation                          |
+| `descriptionETH` | Yes   | Ethereum-specific explanation (use `---` if N/A)      |
+| `image`       | Optional | Main image path                                       |
+| `date`        | Optional | Last update (e.g., `5 Feb`)                           |
+| `time`        | Optional | Reading time (e.g., `3 min read`)                     |
+| `subImages`   | Optional | Array of additional image paths                       |
+| `authorImage` | Optional | Author image path                                     |
+| `authorName`  | Optional | Author name (e.g., `Eth2Ada Academy`)                 |
 
 
-## Field	Required	Description
-id	✅ Yes	Unique identifier (e.g., "term_7")
-title	✅ Yes	Term title (e.g., "UTXO", "Slot")
-text	✅ Yes	Short preview/summary of the term
-description	✅ Yes	Detailed explanation in Cardano context
-descriptionETH	✅ Yes	Detailed Ethereum equivalent (use "---" if not applicable)
-image	Optional	Main image path
-date	Optional	Date of last update (e.g., "5 Feb")
-time	Optional	Reading time (e.g., "3 min read")
-subImages	Optional	Array of additional images
-authorImage	Optional	Path to author’s image
-authorName	Optional	Author’s name or group (e.g., "Eth2Ada Academy")
-✅ Submission Rules
-PRs must contain a single commit
+### Submission Rules
+One commit per PR.
+Modify only data/news_data.js.
+Add or edit one term per PR.
+Use unique term_X IDs.
+Ensure valid JavaScript (no trailing commas, typos).
 
-Modify only the file data/news_data.js
+## 🌐 Website
+Content is rendered at eth2ada.com from data/news_data.js. Merged PRs go live after the next deployment.
 
-Each PR should add or edit only one term
+## 🎁 Contributor Rewards: Airdrop
+Contributors are eligible for an upcoming token airdrop!
+Qualification: Have a term or edit merged into the main branch.
+Tracking: Via GitHub usernames.
+Rewards: Scale with contribution frequency.
+Updates: Follow eth2ada.com or the repo.
 
-IDs must be unique and follow the format "term_X"
+## 💡 Tips
+Write beginner-friendly, neutral explanations.
+Avoid jargon where possible.
+Verify image paths in /images/blog/ or use external hosting.
+Need help? Open an issue or contact us via GitHub.
+Let’s build the ultimate Cardano-to-Ethereum dictionary together! 🚀
 
-Ensure the file remains valid JavaScript (no trailing commas, typos, etc.)
+## Production Build 
+https://github.com/TangentADA/eth2ada-rc
 
-### 🌐 Website
-All dictionary content is publicly available at https://eth2ada.com, rendered directly from the news_data.js file. Once a PR is merged, the changes will appear live after the next deployment.
+## Experimental Build for builders 
+https://github.com/TangentADA/eth2ada-AI
 
-### 🎁 Contributor Rewards: Airdrop Incoming!
-We’re planning an exclusive token airdrop to thank our contributors!
-
-## How to Qualify
-Contribute a term or edit that gets merged into the main branch.
-
-## Airdrop Details
-Contributors tracked by GitHub usernames
-
-Rewards scale with contribution frequency
-
-Stay tuned for full token launch info!
-
-Pro Tip: The more you contribute, the more you can earn. Follow updates here or on https://eth2ada.com.
-
-###💡 Tips
-Keep your explanations educational and beginner-friendly.
-
-Use neutral tone and avoid jargon where possible.
-
-Ensure images exist in /images/blog/ or are externally hosted.
-
-If you need help, open an issue on the repo or reach out via GitHub.
-
-Let’s build the ultimate Cardano-to-Ethereum dictionary—together! 🚀
-
-
-
-
+## Documentation
+[Welcome Toolkit](https://tinyurl.com/33yxvtjn)
+<br>
+[Research Paper](https://tinyurl.com/mr32mb9s)
