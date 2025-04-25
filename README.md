@@ -62,6 +62,7 @@ Append a new object to data/news_data.js with a comma and this structure:
    git add data/news_data.js
    git commit -m "Add new term: DApp"
 ```
+
 ```
 
 
@@ -132,7 +133,13 @@ Verify image paths in /images/blog/ or use external hosting.
 Need help? Open an issue or contact us via GitHub.
 Let’s build the ultimate Cardano-to-Ethereum dictionary together! 🚀
 
+## Production Build 
+https://github.com/TangentADA/eth2ada-rc
+
 ## Experimental Build for builders 
 https://github.com/TangentADA/eth2ada-AI
 
 ## Documentation
+[Welcome Toolkit](https://tinyurl.com/33yxvtjn)
+<br>
+[Research Paper](https://tinyurl.com/mr32mb9s)
