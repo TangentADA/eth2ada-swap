@@ -53,7 +53,6 @@ export default function Header01() {
       { id: uuidv4(), name: "Research Paper", path: "https://tinyurl.com/eth2adarp", external: true },
       { id: uuidv4(), name: "GitHub", path: "https://github.com/TangentADA/eth2ada-rc", external: true },
       { id: uuidv4(), name: "YouTube", path: "https://youtube.com", external: true },
-      { id: uuidv4(), name: "Wiki", path: "https://example.com/wiki", external: true },
     ],
   };
 
