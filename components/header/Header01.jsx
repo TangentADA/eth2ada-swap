@@ -49,8 +49,8 @@ export default function Header01() {
     id: 3,
     name: "Support",
     pages: [
-      { id: uuidv4(), name: "Welcome Toolkit", path: "https://tinyurl.com/33yxvtjn", external: true },
-      { id: uuidv4(), name: "Research Paper", path: "https://tinyurl.com/mr32mb9s", external: true },
+      { id: uuidv4(), name: "Welcome Toolkit", path: "https://tinyurl.com/eth2ada", external: true },
+      { id: uuidv4(), name: "Research Paper", path: "https://tinyurl.com/eth2adarp", external: true },
       { id: uuidv4(), name: "GitHub", path: "https://github.com/TangentADA/eth2ada-rc", external: true },
       { id: uuidv4(), name: "YouTube", path: "https://youtube.com", external: true },
       { id: uuidv4(), name: "Wiki", path: "https://example.com/wiki", external: true },
