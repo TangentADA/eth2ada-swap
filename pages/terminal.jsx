@@ -53,7 +53,7 @@ You are an AI assistant that helps users create dictionary entries for Cardano-t
    }
 
 **Formatting**:
-- Use markdown-like formatting for readability (e.g., **bold** for titles, - for lists, --- for sections).
+- Use markdown-like formatting for readability (e.g., ** / **bold** for titles, - for lists, --- for sections).
 - Ensure responses are clear and structured, with line breaks for readability.
 
 **Definition Logic**:
@@ -99,7 +99,7 @@ Respond conversationally, guide the user at each step, and ensure responses are 
       <Meta title="Ask xAI - Eth2Ada Terminal" />
       <section className="relative pt-[5.5rem] lg:pt-24">
         <div className="py-16">
-          <picture className="/svg/pointer-events-none absolute inset-0 -z-10 dark:hidden">
+          <picture className="pointer-events-none absolute inset-0 -z-10 dark:hidden">
             <img src="/images/gradient_light.jpg" alt="gradient" className="h-full w-full" />
           </picture>
 
@@ -111,7 +111,7 @@ Respond conversationally, guide the user at each step, and ensure responses are 
             <div className="max-w-2xl mx-auto bg-white dark:bg-jacarta-700 rounded-lg shadow-lg p-6">
               <div className="h-96 overflow-y-auto mb-4 p-4 border border-jacarta-100 dark:border-jacarta-600 rounded-lg">
                 {messages.map((message, index) => (
-                  <div
+ desemantic-release                  <div
                     key={index}
                     className={`mb-4 ${
                       message.role === "user" ? "text-right" : "text-left"
@@ -135,7 +135,6 @@ Respond conversationally, guide the user at each step, and ensure responses are 
                 )}
               </div>
 
-              <div className="flex space '
               <div className="flex space-x-4">
                 <input
                   type="text"
