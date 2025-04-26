@@ -16,18 +16,21 @@ export default function Terminal() {
   const handleSendMessage = async () => {
     if (!input.trim()) return;
 
+    // Add user's message to the chat
     const userMessage = { role: "user", content: input };
     setMessages([...messages, userMessage]);
     setInput("");
     setLoading(true);
 
     try {
+      // Call the xAI API via proxy
       const response = await axios.post("/api/xai-proxy", {
-        model: "grok-beta",
+        model: "grok-beta", // Updated to grok-beta to match working dictionary/index.jsx
         messages: [
           {
             role: "system",
-            content: `
+            content:
+              `
 You are an AI assistant that helps users create dictionary entries for Cardano-to-Ethereum terms step by step. Guide the user through the process:
 1) Ask for the term name.
 2) Ask for or suggest a description in the context of Cardano. If the user doesn't know, propose a definition based on blockchain context (e.g., Cardano's UTxO model, DEXs) or search results, and confirm with the user.
@@ -41,7 +44,7 @@ You are an AI assistant that helps users create dictionary entries for Cardano-t
    {
      id: 'term_[unique_id]',
      text: '[short description up to 200 characters]',
-     title: '[term]',
+     title: '[ orta, term]',
      description: '[Cardano description]',
      descriptionETH: '[Ethereum description]',
      image: '/images/blog/term_[unique_id].jpg',
@@ -53,7 +56,7 @@ You are an AI assistant that helps users create dictionary entries for Cardano-t
    }
 
 **Formatting**:
-- Use markdown-like formatting for readability (e.g., ** / **bold** for titles, - for lists, --- for sections).
+- Use markdown-like formatting for readability (e.g., **bold** for titles, - for lists, --- for sections).
 - Ensure responses are clear and structured, with line breaks for readability.
 
 **Definition Logic**:
@@ -72,7 +75,7 @@ You are an AI assistant that helps users create dictionary entries for Cardano-t
 - Provide terminal commands for Git operations.
 
 Respond conversationally, guide the user at each step, and ensure responses are formatted for readability.
-            `,
+              `,
           },
           ...messages,
           userMessage,
@@ -109,9 +112,10 @@ Respond conversationally, guide the user at each step, and ensure responses are 
             </h1>
 
             <div className="max-w-2xl mx-auto bg-white dark:bg-jacarta-700 rounded-lg shadow-lg p-6">
+              {/* Chat Interface */}
               <div className="h-96 overflow-y-auto mb-4 p-4 border border-jacarta-100 dark:border-jacarta-600 rounded-lg">
                 {messages.map((message, index) => (
- desemantic-release                  <div
+                  <div
                     key={index}
                     className={`mb-4 ${
                       message.role === "user" ? "text-right" : "text-left"
@@ -135,6 +139,7 @@ Respond conversationally, guide the user at each step, and ensure responses are 
                 )}
               </div>
 
+              {/* Input Field */}
               <div className="flex space-x-4">
                 <input
                   type="text"
