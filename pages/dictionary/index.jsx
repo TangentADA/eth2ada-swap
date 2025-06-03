@@ -61,7 +61,7 @@ export default function Blog() {
               content: `Generate a Cardano-to-Ethereum dictionary entry for the term "${query}". Include a title, a description in the context of Cardano, a description in the context of Ethereum, and a short text preview (up to 100 characters) of the Cardano description.`,
             },
           ],
-          max_tokens: 500,
+          max_tokens: 1000,
         }
       );
 
