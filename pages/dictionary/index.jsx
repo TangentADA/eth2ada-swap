@@ -50,7 +50,7 @@ export default function Blog() {
       const response = await axios.post(
         '/api/xai-proxy',
         {
-          model: 'grok-3-mini-fast',
+          model: 'grok-3',
           messages: [
             {
               role: 'system',
