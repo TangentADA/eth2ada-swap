@@ -80,7 +80,7 @@ Respond conversationally, guide the user at each step, and ensure responses are 
           ...messages,
           userMessage,
         ],
-        max_tokens: 500,
+        max_tokens: 1000,
       });
 
       const aiResponse = response.data.choices[0].message.content;
