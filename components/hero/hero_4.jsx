@@ -31,10 +31,10 @@ export default function Hero_4() {
         <div className="container">
           <div className="mx-auto pt-20 max-w-2xl text-center">
             <h2 className="mb-2 font-display text-5xl text-jacarta-700 dark:text-white lg:text-6xl xl:text-5xl mt-1">
-            <span className="animate-gradient">Welcome to the Eth2Ada Dictionary!</span>
+            <span className="animate-gradient">Welcome to the Eth2Ada Hub!</span>
             </h2>
             <p className="mx-auto mb-6 max-w-md text-md leading-normal text-jacarta-50">
-            The Place To Learn Cryptocurrency Definitions
+            The AI Powered Place To Learn about Cryptocurrency
             </p>
             {/* <!-- Search --> */}
             <div className="App">
