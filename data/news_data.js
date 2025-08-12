@@ -1607,7 +1607,7 @@ const single_news_data = [
     	subImages: ["/images/blog/gallery_1.jpg", "/images/blog/gallery_2.jpg"],
     	authorImage: "/images/logo-circle.png",
     	authorName: "Eth2Ada Academy"
-	}
+	},
 	{
     	id: "term_132",
     	title: "Cardano SL",
