@@ -99,7 +99,7 @@ const footer = () => {
               <Link href="">
                 <a className="hover:text-accent dark:hover:text-white">
                   {" "}
-                  ETH2ADA
+                  Eth2Ada
                 </a>
               </Link>
             </span>
