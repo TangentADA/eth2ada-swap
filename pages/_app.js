@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import "../styles/globals.css";
 import "../styles/swap.scss";
 import { ThemeProvider } from "next-themes";
@@ -7,12 +8,15 @@ import { store } from "../store"; // Adjust to ../redux/store if needed
 import { useRouter } from "next/router";
 import { MetaMaskProvider } from "metamask-react";
 import Meta from "../components/Meta";
-import UserContext from "../components/UserContext";
+
+// Dynamically import ClientWrapper with SSR disabled
+const ClientWrapper = dynamic(() => import('../components/ClientWrapper'), {
+  ssr: false, // Disable SSR for this component
+});
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const pid = router.asPath;
-  const scrollRef = { scrollPos: 0 }; // Static object, no hooks
 
   return (
     <>
@@ -20,7 +24,7 @@ function MyApp({ Component, pageProps }) {
       <Provider store={store}>
         <ThemeProvider enableSystem={true} attribute="class">
           <MetaMaskProvider>
-            <UserContext.Provider value={{ scrollRef }}>
+            <ClientWrapper>
               {pid === "/login" ? (
                 <Component {...pageProps} />
               ) : (
@@ -28,7 +32,7 @@ function MyApp({ Component, pageProps }) {
                   <Component {...pageProps} />
                 </Layout>
               )}
-            </UserContext.Provider>
+            </ClientWrapper>
           </MetaMaskProvider>
         </ThemeProvider>
       </Provider>
