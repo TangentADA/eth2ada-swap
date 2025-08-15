@@ -5,6 +5,7 @@ import Swap from '@dexhunterio/swaps';
 import '@dexhunterio/swaps/lib/assets/style.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import '../styles/swap.scss'; 
 import { REACT_APP_DEXHUNTER_API_URL } from '../utils/constants';
 
 const SwapPage = ({ adaWallet, network, setAdaWallet, setNetwork }) => {
