@@ -9,6 +9,7 @@ import Meta from "../components/Meta";
 import UserContext from "../components/UserContext";
 import { useEffect, useRef } from "react";
 import 'react-toastify/dist/ReactToastify.css';
+import "../styles/swap.scss";
 import '@dexhunterio/swaps/lib/assets/style.css';
 
 function MyApp({ Component, pageProps }) {
