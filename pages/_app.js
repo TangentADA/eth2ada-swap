@@ -1,4 +1,3 @@
-import { useEffect } from 'react'; // Remove useRef import
 import "../styles/globals.css";
 import "../styles/swap.scss";
 import { ThemeProvider } from "next-themes";
@@ -13,14 +12,7 @@ import UserContext from "../components/UserContext";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const pid = router.asPath;
-  // Move scrollRef to a client-side component or remove if not critical
-  const scrollRef = { scrollPos: 0 }; // Static object instead of useRef
-
-  // If scrollRef is needed client-side, use a useEffect to initialize
-  useEffect(() => {
-    // Client-side logic for scrollRef if needed
-    scrollRef.scrollPos = window.scrollY || 0;
-  }, []);
+  const scrollRef = { scrollPos: 0 }; // Static object, no hooks
 
   return (
     <>
