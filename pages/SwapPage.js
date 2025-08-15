@@ -41,9 +41,9 @@ const SwapPage = ({ adaWallet, network, setAdaWallet, setNetwork }) => {
         theme="dark"
         selectedWallet={adaWallet} // Widget should set this via its own connection
         width="450"
-        partnerCode="tangent26164647231713964347364756d6539736e386b666d6e65733037727a766a34356c3464706d6a7a76756b6d373330706733757079786a3768777078753574676874307a71757561707867756771707a68686733656a39786b6b396b663061727071393267366134da39a3ee5e6b4b0d3255bfef95601890afd80709"
-        partnerName="Tangent2"
-        baseUrl={REACT_APP_DEXHUNTER_API_URL}
+        partnerName={process.env.DEXHUNTER_PARTNER_NAME || 'Tangent2'}
+        partnerCode={process.env.DEXHUNTER_PARTNER_CODE || 'your_partner_code'}
+        baseUrl={process.env.REACT_APP_DEXHUNTER_API_URL || 'https://api-us.dexhunterv3.app'}
         onSwapSuccess={() => toast.success('Swap completed successfully!')}
         onSwapError={(error) => toast.error(`Swap failed: ${error.message}`)}
       />
